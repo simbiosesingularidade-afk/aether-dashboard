@@ -1,0 +1,61 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "tailwindCSS.experimental.classRegex": [
+      ["className\\s*[:=]\\s*", "[\"'`([^\"'`]*).*?\"", "\"'`([^\"'`]*)"],
+      ["\\bclass\\s*[:=]\\s*", "[\"'`([^\"'`]*).*?\"", "\"'`([^\"'`]*)"]
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:5173",
+        "webRoot": "${workspaceFolder}/src"
+      },
+      {
+        "name": "Debug Backend",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "/root/aether_dashboard.py",
+        "console": "integratedTerminal"
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Full Setup",
+        "dependsOrder": "sequence",
+        "dependsOn": ["Install Dependencies", "Build", "Start Backend"],
+        "problemMatcher": []
+      },
+      {
+        "label": "Install Dependencies",
+        "type": "shell",
+        "command": "npm install"
+      },
+      {
+        "label": "Build",
+        "type": "shell",
+        "command": "npm run build"
+      },
+      {
+        "label": "Start Backend",
+        "type": "shell",
+        "command": "bash .vscode/init.sh"
+      }
+    ]
+  }
+}
