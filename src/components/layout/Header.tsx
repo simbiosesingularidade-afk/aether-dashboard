@@ -62,9 +62,9 @@ export function Header({ hedge, lastUpdate }: HeaderProps) {
 
               <div>
                 <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-                  AETHER
+                  AETHERJ
                 </h1>
-                <div className="text-xs text-gray-500">v16.0 HFT QUANTUM (KAIRON&#39;ZAE)</div>
+                <div className="text-xs text-gray-500">v17.2 PROFESSIONAL QUANTUM + EARLY DETECTION WHALE MODE</div>
               </div>
             </div>
 

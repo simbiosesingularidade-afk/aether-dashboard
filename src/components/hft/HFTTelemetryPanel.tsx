@@ -1,5 +1,5 @@
 /**
- * AETHER v16.0 HFT QUANTUM (KAIRON&#39;ZAE) — HFT Telemetry Panel
+ * AETHERJ v17.3.2 PROFESSIONAL QUANTUM + EARLY DETECTION WHALE MODE — HFT Telemetry Panel
  * Displays real-time status of HFT infrastructure components
  */
 
@@ -83,7 +83,7 @@ export function HFTTelemetryPanel() {
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-white flex items-center gap-3">
           <span className="text-3xl">🚀</span>
-          HFT Telemetry v16.0 QUANTUM
+          HFT Telemetry v17.3.2 PROFESSIONAL WHALE MODE
           <span className="ml-3 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-bold border border-cyan-500/30 animate-pulse">
             LIVE
           </span>
