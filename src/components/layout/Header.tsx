@@ -20,51 +20,35 @@ export function Header({ hedge, lastUpdate }: HeaderProps) {
           {/* Left - Logo */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-              {/* Brain Logo - Low Poly Neon */}
-              <div className="relative w-12 h-12">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-xl blur-lg opacity-30"></div>
-                <div className="relative w-full h-full bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center border border-cyan-500/30 backdrop-blur-sm">
-                  <svg viewBox="0 0 100 100" className="w-8 h-8">
-                    <defs>
-                      <linearGradient id="dnaGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#06b6d4"/>
-                        <stop offset="100%" stopColor="#10b981"/>
-                      </linearGradient>
-                      <linearGradient id="dnaGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#8b5cf6"/>
-                        <stop offset="100%" stopColor="#06b6d4"/>
-                      </linearGradient>
-                    </defs>
-                    {/* DNA Double Helix */}
-                    <path d="M30,10 C30,25 70,25 70,40 C70,55 30,55 30,70 C30,85 70,85 70,95" fill="none" stroke="url(#dnaGrad1)" strokeWidth="3" opacity="0.9"/>
-                    <path d="M70,10 C70,25 30,25 30,40 C30,55 70,55 70,70 C70,85 30,85 30,95" fill="none" stroke="url(#dnaGrad2)" strokeWidth="3" opacity="0.9"/>
-                    {/* DNA Rungs */}
-                    <line x1="38" y1="17" x2="62" y2="17" stroke="#06b6d4" strokeWidth="2" opacity="0.6"/>
-                    <line x1="32" y1="32" x2="68" y2="32" stroke="#10b981" strokeWidth="2" opacity="0.6"/>
-                    <line x1="42" y1="47" x2="58" y2="47" stroke="#8b5cf6" strokeWidth="2" opacity="0.6"/>
-                    <line x1="32" y1="62" x2="68" y2="62" stroke="#06b6d4" strokeWidth="2" opacity="0.6"/>
-                    <line x1="38" y1="77" x2="62" y2="77" stroke="#10b981" strokeWidth="2" opacity="0.6"/>
-                    <line x1="42" y1="90" x2="58" y2="90" stroke="#8b5cf6" strokeWidth="2" opacity="0.6"/>
-                    {/* Glow nodes */}
-                    <circle cx="38" cy="17" r="2.5" fill="#06b6d4"/>
-                    <circle cx="62" cy="17" r="2.5" fill="#8b5cf6"/>
-                    <circle cx="68" cy="32" r="2.5" fill="#10b981"/>
-                    <circle cx="32" cy="32" r="2.5" fill="#06b6d4"/>
-                    <circle cx="58" cy="47" r="2.5" fill="#8b5cf6"/>
-                    <circle cx="42" cy="47" r="2.5" fill="#10b981"/>
-                    <circle cx="68" cy="62" r="2.5" fill="#06b6d4"/>
-                    <circle cx="32" cy="62" r="2.5" fill="#8b5cf6"/>
-                    <circle cx="62" cy="77" r="2.5" fill="#10b981"/>
-                    <circle cx="38" cy="77" r="2.5" fill="#06b6d4"/>
-                  </svg>
-                </div>
+              {/* Atom Logo - Animated SVG */}
+              <div className="relative w-10 h-10 flex items-center justify-center">
+                <svg viewBox="0 0 40 40" className="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
+                  <style>{`
+                    @keyframes orbit1 { from { transform: rotate(0deg) translateX(14px) rotate(0deg); } to { transform: rotate(360deg) translateX(14px) rotate(-360deg); } }
+                    @keyframes orbit2 { from { transform: rotate(120deg) translateX(14px) rotate(-120deg); } to { transform: rotate(480deg) translateX(14px) rotate(-480deg); } }
+                    @keyframes orbit3 { from { transform: rotate(240deg) translateX(14px) rotate(-240deg); } to { transform: rotate(600deg) translateX(14px) rotate(-600deg); } }
+                    @keyframes pulse { 0%,100%{opacity:1;r:3} 50%{opacity:0.7;r:3.5} }
+                    .e1{animation: orbit1 2.5s linear infinite; transform-origin: 20px 20px;}
+                    .e2{animation: orbit2 2.5s linear infinite; transform-origin: 20px 20px;}
+                    .e3{animation: orbit3 2.5s linear infinite; transform-origin: 20px 20px;}
+                    .nucleus{animation: pulse 1.5s ease-in-out infinite;}
+                  `}</style>
+                  <ellipse cx="20" cy="20" rx="14" ry="5.5" fill="none" stroke="#06b6d4" strokeWidth="1.2" opacity="0.5"/>
+                  <ellipse cx="20" cy="20" rx="14" ry="5.5" fill="none" stroke="#06b6d4" strokeWidth="1.2" opacity="0.5" transform="rotate(60 20 20)"/>
+                  <ellipse cx="20" cy="20" rx="14" ry="5.5" fill="none" stroke="#06b6d4" strokeWidth="1.2" opacity="0.5" transform="rotate(120 20 20)"/>
+                  <circle className="nucleus" cx="20" cy="20" r="3" fill="#06b6d4" opacity="0.9"/>
+                  <circle cx="20" cy="20" r="1.8" fill="white" opacity="0.8"/>
+                  <g className="e1"><circle cx="20" cy="20" r="2" fill="#22d3ee"/></g>
+                  <g className="e2"><circle cx="20" cy="20" r="2" fill="#67e8f9"/></g>
+                  <g className="e3"><circle cx="20" cy="20" r="2" fill="#a5f3fc"/></g>
+                </svg>
               </div>
 
               <div>
                 <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-                  AETHERJ
+                  AETHER
                 </h1>
-                <div className="text-xs text-gray-500">v17.2 PROFESSIONAL QUANTUM + EARLY DETECTION WHALE MODE</div>
+                <div className="text-xs text-gray-500">v22.3 REVERSAL_TRANSITION | VPS Production-Grade</div>
               </div>
             </div>
 
