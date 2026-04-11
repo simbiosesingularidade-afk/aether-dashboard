@@ -9,7 +9,6 @@ import { RiskEngine } from './components/risk/RiskEngine';
 import { RestrictionsPanel } from './components/risk/RestrictionsPanel';
 import { PairStatsTable } from './components/risk/PairStatsTable';
 import { PerformanceChart } from './components/charts/PerformanceChart';
-import { HFTTelemetryPanel } from './components/hft/HFTTelemetryPanel';
 import { useState } from 'react';
 
 function App() {
@@ -28,7 +27,7 @@ function App() {
             </div>
           </div>
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-cyan-400 font-semibold text-lg">AETHERJ V17.2 PROFESSIONAL QUANTUM + EARLY DETECTION</p>
+          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.3 REVERSAL_TRANSITION</p>
           <p className="text-gray-500 text-sm mt-2">Inicializando dashboard...</p>
         </div>
       </div>
@@ -66,18 +65,18 @@ function App() {
             {/* Title */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-2">
-                AETHERJ V17.2 PROFESSIONAL QUANTUM + EARLY DETECTION
+                AETHER v22.3 REVERSAL_TRANSITION
               </h1>
-              <p className="text-gray-400 text-lg">O Código Definitivo de Trading Algorítmico</p>
+              <p className="text-gray-400 text-lg">Bot Paper Trading VPS-Production-Grade</p>
               <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
                 <span className="px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold">
-                  72 Tokens + Snipe Híbrido
+                  19 Tokens | CORE(3) OPORT(9) PRIVACY(2) TATICO(5)
                 </span>
                 <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-400 text-sm font-semibold">
-                  Early Detection +10%
+                  USE_REAL_MARKET_DATA=true — Binance pública
                 </span>
                 <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-400 text-sm font-semibold">
-                  4 Setup Families
+                  REVERSAL_TRANSITION + Pump Radar
                 </span>
                 <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-yellow-400 text-sm font-semibold">
                   Market Regime Filter
@@ -120,7 +119,7 @@ function App() {
                 : 'text-gray-400 hover:text-white hover:bg-gray-800'
             }`}
           >
-            📚 Regras V17.2
+            📚 Regras v22.3
           </button>
           <button
             onClick={() => setActiveTab('strategies')}
@@ -146,132 +145,102 @@ function App() {
 
             <KPISection state={state} />
 
-            {/* HFT Telemetry Panel */}
-            <HFTTelemetryPanel />
-
-            {/* Whale Radar Section */}
-            <section className="mb-8 bg-gradient-to-br from-purple-900/20 via-cyan-900/20 to-emerald-900/20 border border-purple-500/30 rounded-2xl p-6 backdrop-blur-sm">
+            {/* Pump Radar Section */}
+            <section className="mb-8 bg-gradient-to-br from-orange-900/20 via-yellow-900/10 to-red-900/20 border border-orange-500/30 rounded-2xl p-6 backdrop-blur-sm">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white flex items-center gap-3">
-                  <span className="text-3xl animate-pulse">🐋</span>
-                  Whale Radar v17.2 Early Detection
-                  <span className="ml-3 px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold border border-purple-500/30">
-                    {Object.keys(state.whale_flows || {}).length} Ativos
+                  <span className="text-3xl animate-pulse">🚀</span>
+                  Pump Radar v22 — Observacional
+                  <span className="ml-3 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-sm font-bold border border-orange-500/30">
+                    Apenas Alertas
                   </span>
                 </h2>
                 <div className="text-sm text-gray-400 flex items-center gap-2">
-                  <span>[VALIDADO] ✅</span>
-                  <span>[SNIPE] 🎯</span>
+                  <span>Detecção +5% com volume</span>
                   <span>•</span>
-                  <span>Early Entry +10%</span>
+                  <span>Alerta via Telegram</span>
                 </div>
               </div>
-
-              {Object.keys(state.whale_flows || {}).length === 0 ? (
-                <div className="text-center py-8 text-gray-500">
-                  <div className="text-4xl mb-3">🔍</div>
-                  <div>Nenhum whale detectado no momento</div>
-                  <div className="text-sm mt-2">Early Detection: scan contínuo em busca de movimentos +10% (INÍCIO do pump)</div>
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {Object.entries(state.whale_flows || {}).map(([sym, flow]: [string, any]) => {
-                    const strength = flow.strength || flow.vol_r * 8 || 0;
-                    const intensity = strength > 25 ? 'extreme' : strength > 15 ? 'high' : strength > 10 ? 'medium' : 'low';
-
-                    // v17.2: Whale classification
-                    let classification = 'VALIDADO';
-                    let classificationEmoji = '✅';
-                    let classificationColor = 'emerald';
-
-                    if (!flow.validated) {
-                      classification = 'SNIPE';
-                      classificationEmoji = '🎯';
-                      classificationColor = 'orange';
-                    } else if (strength > 20) {
-                      classification = 'GIGA';
-                      classificationEmoji = '🚀🚀';
-                      classificationColor = 'red';
-                    }
-
-                    const colors = {
-                      extreme: 'from-red-500 to-orange-500',
-                      high: 'from-orange-500 to-yellow-500',
-                      medium: 'from-yellow-500 to-cyan-500',
-                      low: 'from-cyan-500 to-emerald-500'
-                    };
-                    return (
-                      <div key={sym} className={`relative bg-gradient-to-br ${colors[intensity]}/10 border border-${colors[intensity].split('-')[1]}-500/30 rounded-xl p-4 backdrop-blur-sm`}>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-lg font-bold text-white flex items-center gap-2">
-                            {sym.replace('/USDT', '')}
-                            <span className={`px-2 py-0.5 rounded text-xs font-bold bg-${classificationColor}-500/20 text-${classificationColor}-400 border border-${classificationColor}-500/30`}>
-                              [{classification}] {classificationEmoji}
-                            </span>
-                          </span>
-                          <span className={`px-2 py-1 rounded text-xs font-bold ${
-                            intensity === 'extreme' ? 'bg-red-500/30 text-red-400' :
-                            intensity === 'high' ? 'bg-orange-500/30 text-orange-400' :
-                            intensity === 'medium' ? 'bg-yellow-500/30 text-yellow-400' :
-                            'bg-cyan-500/30 text-cyan-400'
-                          }`}>
-                            +{strength.toFixed(1)}%
-                          </span>
-                        </div>
-                        <div className="text-xs text-gray-400 mb-2">
-                          {new Date(flow.ts).toLocaleTimeString('pt-BR')}
-                        </div>
-                        <div className="flex items-center gap-2 text-xs">
-                          <span className="px-2 py-1 rounded bg-purple-500/20 text-purple-400 font-semibold">
-                            {flow.type}
-                          </span>
-                          {strength > 20 && (
-                            <span className="px-2 py-1 rounded bg-red-500/20 text-red-400 animate-pulse">
-                              EARLY
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-
-              <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm mb-4">
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Threshold Conservative</div>
-                  <div className="text-xl font-bold text-cyan-400">+12%</div>
+                  <div className="text-gray-400 mb-1">Price Accel Mín</div>
+                  <div className="text-xl font-bold text-orange-400">+5%</div>
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Threshold Aggressive</div>
-                  <div className="text-xl font-bold text-orange-400">+10%</div>
+                  <div className="text-gray-400 mb-1">Stretch Máx</div>
+                  <div className="text-xl font-bold text-yellow-400">12%</div>
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Validados</div>
-                  <div className="text-xl font-bold text-emerald-400">72</div>
+                  <div className="text-gray-400 mb-1">Early Vol Mult</div>
+                  <div className="text-xl font-bold text-cyan-400">2.5×</div>
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Snipe Híbrido</div>
-                  <div className="text-xl font-bold text-yellow-400">+25% ILIMITADO</div>
+                  <div className="text-gray-400 mb-1">Spread Máx</div>
+                  <div className="text-xl font-bold text-purple-400">0.5%</div>
                 </div>
-                <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Max Loss (Cons)</div>
-                  <div className="text-xl font-bold text-green-400">$1.00</div>
-                </div>
-                <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Max Loss (Agg)</div>
-                  <div className="text-xl font-bold text-red-400">$1.50</div>
-                </div>
-                <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Early Detection</div>
-                  <div className="text-xl font-bold text-purple-400">1h &lt; 50%</div>
-                </div>
-                <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Min Score (Cons)</div>
-                  <div className="text-xl font-bold text-cyan-400">45 pts</div>
-                </div>
+              </div>
+              <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 text-center">
+                <p className="text-sm text-gray-400">
+                  <span className="font-bold text-orange-400">PUMP RADAR v22:</span> Scan fora do universo principal.
+                  Detecção de +5% com volume — <strong className="text-yellow-400">sem entrada automática</strong>.
+                  Early pump: vol≥2.5× + mom3 +2% a +8% + RSI≤65.
+                  Cooldown 60min/token. Alertas enviados ao Telegram.
+                </p>
               </div>
             </section>
+
+            {/* Novas Listagens + VPS Hardening */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <section className="bg-gradient-to-br from-emerald-900/20 to-cyan-900/20 border border-emerald-500/30 rounded-2xl p-6 backdrop-blur-sm">
+                <h2 className="text-xl font-bold text-white flex items-center gap-3 mb-4">
+                  <span className="text-3xl">🆕</span>
+                  Novas Listagens
+                </h2>
+                <div className="space-y-3 text-sm">
+                  <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
+                    <span className="text-gray-400">Volume mínimo 24h</span>
+                    <span className="font-bold text-emerald-400">$5M</span>
+                  </div>
+                  <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
+                    <span className="text-gray-400">Janela de monitoramento</span>
+                    <span className="font-bold text-cyan-400">7 dias</span>
+                  </div>
+                  <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
+                    <span className="text-gray-400">Verificação</span>
+                    <span className="font-bold text-yellow-400">a cada 1h</span>
+                  </div>
+                  <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
+                    <span className="text-gray-400">Modo</span>
+                    <span className="font-bold text-purple-400">Observacional + alerta TG</span>
+                  </div>
+                </div>
+              </section>
+
+              <section className="bg-gradient-to-br from-blue-900/20 to-indigo-900/20 border border-blue-500/30 rounded-2xl p-6 backdrop-blur-sm">
+                <h2 className="text-xl font-bold text-white flex items-center gap-3 mb-4">
+                  <span className="text-3xl">🖥️</span>
+                  VPS Hardening
+                </h2>
+                <div className="space-y-3 text-sm">
+                  <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
+                    <span className="text-gray-400">Instance lock</span>
+                    <span className="font-bold text-blue-400">fcntl PID file</span>
+                  </div>
+                  <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
+                    <span className="text-gray-400">State save</span>
+                    <span className="font-bold text-cyan-400">Escrita atômica (.tmp → rename)</span>
+                  </div>
+                  <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
+                    <span className="text-gray-400">Graceful shutdown</span>
+                    <span className="font-bold text-emerald-400">SIGTERM / SIGINT</span>
+                  </div>
+                  <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
+                    <span className="text-gray-400">Market data</span>
+                    <span className="font-bold text-yellow-400">USE_REAL_MARKET_DATA=true</span>
+                  </div>
+                </div>
+              </section>
+            </div>
 
             {/* Main Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
@@ -294,56 +263,56 @@ function App() {
                     <div className="flex items-start gap-4">
                       <span className="text-3xl">🔐</span>
                       <div className="flex-1">
-                        <h3 className="font-bold text-emerald-400 text-lg mb-4">Trailing Stop v17.2 PROFESSIONAL (Dynamic Gaps)</h3>
+                        <h3 className="font-bold text-emerald-400 text-lg mb-4">Trailing Stop v22 — 3 Níveis Progressivos</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
                           <div className="flex items-center gap-2">
                             <span className="text-cyan-400">●</span>
                             <span className="text-gray-400">Breakeven:</span>
-                            <span className="ml-2 font-mono font-bold text-white">+0.2%</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-emerald-400">●</span>
-                            <span className="text-gray-400">Trail Activation:</span>
-                            <span className="ml-2 font-mono font-bold text-emerald-400">+0.4%</span>
+                            <span className="ml-2 font-mono font-bold text-white">+0.5% → SL+0.15%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-yellow-400">●</span>
-                            <span className="text-gray-400">Partial Sell:</span>
-                            <span className="ml-2 font-mono font-bold text-yellow-400">50% @ 60% TP</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-cyan-400">●</span>
-                            <span className="text-gray-400">Gap &lt;1% PnL:</span>
-                            <span className="ml-2 font-mono font-bold text-cyan-400">0.4%</span>
+                            <span className="text-gray-400">Partial TP:</span>
+                            <span className="ml-2 font-mono font-bold text-yellow-400">50% @ +1.0–1.5%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-emerald-400">●</span>
-                            <span className="text-gray-400">Gap 1-3% PnL:</span>
-                            <span className="ml-2 font-mono font-bold text-emerald-400">1.0%</span>
+                            <span className="text-gray-400">L1 (+1%):</span>
+                            <span className="ml-2 font-mono font-bold text-emerald-400">trail 0.8%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-purple-400">●</span>
-                            <span className="text-gray-400">Gap 3-5% PnL:</span>
-                            <span className="ml-2 font-mono font-bold text-purple-400">2.0%</span>
+                            <span className="text-gray-400">L2 (+2.5%):</span>
+                            <span className="ml-2 font-mono font-bold text-purple-400">trail 0.5%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-pink-400">●</span>
-                            <span className="text-gray-400">Gap 5-8% PnL:</span>
-                            <span className="ml-2 font-mono font-bold text-pink-400">3.5%</span>
+                            <span className="text-gray-400">L3 (+5%):</span>
+                            <span className="ml-2 font-mono font-bold text-pink-400">trail 0.3%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-orange-400">●</span>
-                            <span className="text-gray-400">Gap 8-12% PnL:</span>
-                            <span className="ml-2 font-mono font-bold text-orange-400">5.0%</span>
+                            <span className="text-gray-400">TATICO mult:</span>
+                            <span className="ml-2 font-mono font-bold text-orange-400">× 0.7 (mais apertado)</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-red-400">●</span>
-                            <span className="text-gray-400">Gap &gt;12% PnL:</span>
-                            <span className="ml-2 font-mono font-bold text-red-400">8.0%</span>
+                            <span className="text-gray-400">SL ATR:</span>
+                            <span className="ml-2 font-mono font-bold text-red-400">1.2× ATR (2–3.5%)</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-blue-400">●</span>
+                            <span className="text-gray-400">RR mínimo:</span>
+                            <span className="ml-2 font-mono font-bold text-blue-400">2× (TP = 2× SL)</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-gray-400">●</span>
+                            <span className="text-gray-400">Soft exit:</span>
+                            <span className="ml-2 font-mono font-bold text-gray-300">12h→24h (0.25%/15min)</span>
                           </div>
                         </div>
                         <div className="mt-3 text-xs text-gray-500 italic">
-                          * Gap aumenta dinamicamente conforme PnL sobe para proteger lucros acumulados
+                          * Trailing progressivo: distância aperta conforme PnL sobe — protege lucros sem fechar cedo
                         </div>
                       </div>
                     </div>
@@ -478,12 +447,11 @@ function StatCard({ icon, label, value, color }: { icon: string; label: string; 
 
 function StrategyCards() {
   const strategies = [
-    { name: '💎 T1 Blue Chip', icon: '💎', desc: '2 tokens (BTC/ETH) • Max 18% • Trend Pullback', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30' },
-    { name: '🚀 T2 Alts AI/DeFi', icon: '🚀', desc: '35 tokens • Max 15% • 4 Setup Families', color: 'from-cyan-500/20 to-indigo-500/10', border: 'border-cyan-500/30' },
-    { name: '⚡ T3 Memes', icon: '⚡', desc: '27 memes • Max 12% • Breakout Confirmed', color: 'from-emerald-500/20 to-emerald-500/10', border: 'border-emerald-500/30' },
-    { name: '🐋 [VALIDADO] ✅', icon: '✅', desc: '72 tokens • 15% size • Early Entry +10% • TP 6%', color: 'from-purple-500/20 to-purple-500/10', border: 'border-purple-500/30' },
-    { name: '🎯 [SNIPE] ILIMITADO', icon: '🎯', desc: 'QUALQUER token +25% • 8% size • TP 5% • Quick exit', color: 'from-orange-500/20 to-red-500/10', border: 'border-orange-500/30' },
-    { name: '🔄 REVERSAL_SPOT', icon: '🔄', desc: 'Entrada precoce em reversão • RSI 30-55 • Momentum positivo', color: 'from-yellow-500/20 to-orange-500/10', border: 'border-yellow-500/30' },
+    { name: '💎 CORE', icon: '💎', desc: 'BTC ETH BNB • score≥40 • drop -2% a -10% • hold 48h • size max $25', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30' },
+    { name: '📈 OPORTUNIDADE', icon: '📈', desc: 'LINK AAVE UNI XRP SOL TAO NEAR ARB RENDER • score≥55 • hold 24h • size max $18', color: 'from-cyan-500/20 to-indigo-500/10', border: 'border-cyan-500/30' },
+    { name: '🔒 PRIVACY', icon: '🔒', desc: 'ZEC XMR • score≥70 • hold 12h • size max $8 • bloqueado em RISK_OFF', color: 'from-purple-500/20 to-purple-500/10', border: 'border-purple-500/30' },
+    { name: '⚡ TATICO', icon: '⚡', desc: 'FET INJ NMR CFG DUSK • score≥48 • hold 8h • size max $12 • FET exceção sanfona', color: 'from-emerald-500/20 to-emerald-500/10', border: 'border-emerald-500/30' },
+    { name: '🚀 Pump Radar', icon: '🚀', desc: 'Observacional • +5% com volume • Early vol≥2.5× • Apenas alertas Telegram', color: 'from-orange-500/20 to-red-500/10', border: 'border-orange-500/30' },
   ];
 
   return (
@@ -506,68 +474,65 @@ function StrategyCards() {
 function RulesSection() {
   const rules = [
     {
-      category: "🎯 V17.2 SETUP FAMILIES",
+      category: "🔄 REVERSAL_TRANSITION — Setup Único v22",
       rules: [
-        { title: "① REVERSAL_SPOT", desc: "Entrada precoce em reversão sem tendência confirmada • ADX 12-20 • RSI 30-55", example: "RSI&lt;40 + momentum&gt;0 → entra antes da confirmação" },
-        { title: "② TREND_PULLBACK", desc: "Pullback em tendência confirmada • EMA8&gt;EMA21&gt;EMA50 • ADX 15-20", example: "Trend forte + price&lt;3% EMA8 → entrada pullback" },
-        { title: "③ BREAKOUT_CONFIRMED", desc: "Breakout confirmado • Volume expansion • Momentum positivo", example: "Volume&gt;1.2x + price&gt;high20 → breakout" },
-        { title: "④ EVENT_WHALE", desc: "Detecção de whale • Early entry +10% • Volume&gt;$2M", example: "Token +10% 1h&lt;50% change → early entry" },
+        { title: "Drop recente", desc: "CORE: -2% a -10% | OPORT: -2.5% a -12% | PRIVACY: -3% a -15% | TATICO: -1.8% a -8%", example: "BTC cai -5% nos últimos 48 candles → candidato" },
+        { title: "Recovery confirmada", desc: "CORE: +0.5% a +5% | OPORT: +0.8% a +4% | PRIVACY: +1.2% a +5% | TATICO: +0.9% a +3%", example: "BTC sobe +1% do low recente → recovery válida" },
+        { title: "EMA8 distância", desc: "-1.5% a +2.5% da EMA8 (não muito longe)", example: "Preço está 1% acima da EMA8 → OK" },
+        { title: "RSI Wilder's 14", desc: "38 a 62 (nem oversold extremo, nem overbought)", example: "RSI = 45 → zona neutra favorável" },
+        { title: "Momentum mom3", desc: "mom3 &gt; -0.5% (não caindo mais)", example: "mom3 = +0.3% → transição positiva" },
+        { title: "Volume ratio", desc: "vol_ratio ≥ 0.8 (volume mínimo)", example: "Volume 90% da média → aceitável" },
       ]
     },
     {
-      category: "⚙️ QUALITY-BASED SIZING v17.2",
+      category: "📊 SCORE MÍNIMO POR CATEGORIA",
       rules: [
-        { title: "Score 80+ (Excelente)", desc: "Multiplicador 1.5x • Entradas agressivas", example: "Score 85 → size × 1.5 = posição maior" },
-        { title: "Score 70-79 (Bom)", desc: "Multiplicador 1.0x • Tamanho padrão", example: "Score 75 → size × 1.0 = normal" },
-        { title: "Score 55-69 (OK)", desc: "Multiplicador 0.85x • Entradas moderadas", example: "Score 60 → size × 0.85 = reduzida" },
-        { title: "Score 45-54 (Fraco)", desc: "Multiplicador 0.7x • Entradas conservadoras", example: "Score 48 → size × 0.7 = pequena" },
-        { title: "Score 35-44 (Aggressive)", desc: "Multiplicador 0.5x • Apenas modo agressivo", example: "Score 38 → size × 0.5 = mínima" },
+        { title: "CORE (BTC/ETH/BNB)", desc: "score ≥ 40 — qualquer regime", example: "Score 42 → CORE entra em qualquer condição" },
+        { title: "OPORTUNIDADE", desc: "score ≥ 55 (RISK_ON) | ≥ 58 (NEUTRAL) | ≥ 60 (RISK_OFF) + vol≥1.0× + mom&gt;-0.1", example: "Score 58 em NEUTRAL → entra com tamanho reduzido" },
+        { title: "PRIVACY (ZEC/XMR)", desc: "score ≥ 70 — BLOQUEADO em RISK_OFF (risco regulatório)", example: "Score 72 em RISK_ON → entra com size máx $8" },
+        { title: "TATICO", desc: "score ≥ 48 (RISK_ON) | ≥ 53 (NEUTRAL) | FET ≥ 58 (RISK_OFF excepcionalmente)", example: "FET score 60 em RISK_OFF → exceção sanfona" },
       ]
     },
     {
-      category: "🎯 MARKET REGIME FILTER",
+      category: "🌡️ REGIME FILTER v22",
       rules: [
-        { title: "RISK_ON 🟢", desc: "BTC 24h&gt;+2% + Breadth&gt;60% • Multiplicador 1.2x", example: "Mercado forte → posições 20% maiores" },
-        { title: "NEUTRAL 🟡", desc: "Condições normais • Multiplicador 1.0x (default)", example: "Mercado estável → tamanho normal" },
-        { title: "RISK_OFF 🔴", desc: "BTC 24h&lt;-3% ou Breadth&lt;30% • Multiplicador 0.5x", example: "Mercado fraco → posições 50% menores" },
-        { title: "T3 Block em RISK_OFF", desc: "Meme tokens bloqueados em RISK_OFF (exceto aggressive)", example: "RISK_OFF → T3 bloqueado, protege capital" },
+        { title: "RISK_ON 🟢 — Size 100%", desc: "BTC forte + alts outperformando • Todas categorias ativas", example: "CORE 100% | OPORT 100% | TATICO 100% | PRIVACY 70%" },
+        { title: "NEUTRAL 🟡 — Size reduzido", desc: "Condições mistas", example: "CORE 90% | OPORT 75% | TATICO 60% | PRIVACY 50%" },
+        { title: "RISK_OFF 🔴 — Size mínimo", desc: "BTC fraco ou alts underperformando", example: "CORE 75% | OPORT 50% | TATICO 35% | PRIVACY BLOQUEADO" },
+        { title: "Score mínimo dinâmico", desc: "Em RISK_OFF score mínimo sobe: OPORT +5 | TATICO +15 (exceto FET +10)", example: "OPORT precisa de 60 pts em RISK_OFF (era 55)" },
       ]
     },
     {
-      category: "⚙️ RISK MANAGEMENT",
+      category: "⚙️ RISK MANAGEMENT v22",
       rules: [
-        { title: "MAX_LOSS_USD Conservative", desc: "$1.00 por trade (era $0.50) • +100% tolerância", example: "Modo conservador → loss máximo $1.00" },
-        { title: "MAX_LOSS_USD Aggressive", desc: "$1.50 por trade (era $0.50) • +200% tolerância", example: "Modo agressivo → loss máximo $1.50" },
-        { title: "Max Position Size", desc: "20% do equity por posição (inalterado)", example: "Equity $100 → máximo $20 por posição" },
-        { title: "Kelly Criterion", desc: "25% do Kelly ótimo + streak adaptive", example: "WR 50% PF 2.0 → Kelly 6.25% → size 1.56%" },
+        { title: "Position size máximo", desc: "10% do equity por posição (report April/2026)", example: "Equity $100 → máximo $10 por posição" },
+        { title: "Risk per trade", desc: "$1.00 por trade • SL baseado em ATR", example: "ATR 2% → size = $1.00 / 0.02 = $50 (cap equity)" },
+        { title: "Daily loss max", desc: "$3.00 ou 5% do equity (o que atingir primeiro)", example: "Perdeu $3 → stop diário, sem novas entradas" },
+        { title: "Kill switch", desc: "4 loss streak | WR &lt; 30% (20 trades) | Expectancy &lt; -$0.50", example: "4 stops seguidos → kill switch ativa automaticamente" },
+        { title: "Volume 24h mínimo", desc: "CORE $50M | OPORT $20M | TATICO $15M | PRIVACY $10M", example: "Token com $5M vol24h → bloqueado" },
+        { title: "Spread máximo", desc: "0.3% spread | 0.5% slippage máximo", example: "Spread 0.4% → bloqueado" },
       ]
     },
     {
-      category: "🔒 TRAILING STOP",
+      category: "🔒 TRAILING STOP v22 — 3 Níveis",
       rules: [
-        { title: "Breakeven", desc: "SL vai para entrada em +0.2%", example: "Entrou $100, em $100.20 SL fica $100.01" },
-        { title: "Trail Activation", desc: "Trailing inicia em +0.4%", example: "Atingiu $100.40, trailing ativa" },
-        { title: "Trail Gap", desc: "0.4% abaixo do high (adaptativo até 8%)", example: "High $102 → SL $101.20 (+2% = 5× gap)" },
-        { title: "Partial Sell", desc: "Vende 50% em 60% do TP", example: "TP $110 → vende 50% em $106" },
+        { title: "Breakeven", desc: "SL sobe para entrada + 0.15% em +0.5%", example: "Entrou $100, em $100.50 SL fica $100.15" },
+        { title: "Partial TP", desc: "Vende 50% em +1.0% (TATICO) / +1.2% (OPORT) / +1.5% (CORE)", example: "CORE em +1.5% → fecha 50% da posição" },
+        { title: "L1 — +1%", desc: "Trail distance 0.8% abaixo do high (TATICO: ×0.7 = 0.56%)", example: "High $102 → SL $101.18" },
+        { title: "L2 — +2.5%", desc: "Trail distance 0.5% abaixo do high", example: "High $105 → SL $104.47" },
+        { title: "L3 — +5%", desc: "Trail distance 0.3% abaixo do high (apertado)", example: "High $110 → SL $109.67" },
+        { title: "Soft Time Stop", desc: "Reduz 0.25%/15min a partir de 12h até fechar 100% em 24h", example: "Posição 18h → 25% vendido gradualmente" },
       ]
     },
     {
-      category: "🐋 WHALE RADAR v17.2 EARLY DETECTION",
+      category: "🛡️ PROTEÇÕES v22",
       rules: [
-        { title: "Early Entry +10%", desc: "Entra no INÍCIO do pump (não topo!) • 1h&lt;50% change", example: "24h=+20%, 1h&lt;+10% → early entry" },
-        { title: "✅ Validados (72 tokens)", desc: "Threshold +12% conservative • Size 15% • TP 6% • RSI 30-50", example: "FET +12% → entra com estratégia completa" },
-        { title: "🎯 Snipe ILIMITADO", desc: "QUALQUER token +25% • Size 8% • TP 5% • RSI 25-55", example: "COS +25% → snipe agressivo" },
-        { title: "Max Loss por Modo", desc: "Conservative $1.00 • Aggressive $1.50", example: "Loss excede → bloqueia entrada" },
-        { title: "Min Score por Modo", desc: "Conservative 45 pts • Aggressive 35 pts", example: "Score baixo → rejeita setup" },
-      ]
-    },
-    {
-      category: "🚨 PROTEÇÕES v17.2",
-      rules: [
-        { title: "Anti-Vício Relaxado", desc: "3 trades/dia (era 2) • 2 losses bloqueiam (era 1)", example: "Mais flexibilidade para entrar" },
-        { title: "Max Trades Global", desc: "40 trades por dia (inalterado)", example: "Após 40 trades, bot para de abrir" },
-        { title: "Sector Lock", desc: "2 losses = bloqueio 4h (inalterado)", example: "Perdeu 2x AI → bloqueia FET, RENDER" },
-        { title: "Cooldown", desc: "60min base • Adaptive com streak (inalterado)", example: "Vendeu SOL → aguarda 60min+" },
+        { title: "Hold time adaptativo", desc: "CORE 48h | OPORT 24h | PRIVACY 12h | TATICO 8h (hard stop)", example: "TATICO 9h → fecha automaticamente" },
+        { title: "Cooldown pós-loss", desc: "2h cooldown no token após perda", example: "Perdeu em SOL → sem entrada em SOL por 2h" },
+        { title: "Blacklist TATICO", desc: "TATICO vai para blacklist por 4h após 1 loss", example: "FET perde → blacklist 4h" },
+        { title: "Sector lock", desc: "2 losses/setor/dia bloqueia o setor", example: "2 losses em DeFi → bloqueia AAVE, UNI, LINK" },
+        { title: "Max posições abertas", desc: "3 posições simultâneas máximo", example: "Já tem 3 abertas → sem novas entradas" },
+        { title: "Max trades/dia", desc: "15 trades por dia (global)", example: "Após 15 trades, bot para de abrir" },
       ]
     },
   ];
@@ -598,111 +563,140 @@ function RulesSection() {
 }
 
 function StrategiesSection() {
-  const strategies = [
+  const categories = [
     {
-      tier: "T1 - Blue Chips",
+      tier: "CORE",
       icon: "💎",
-      tokens: ["BTC/USDT", "ETH/USDT"],
-      signals: ["TREND_PULLBACK", "BREAKOUT_CONFIRMED", "REVERSAL_SPOT"],
-      maxSize: "18%",
-      families: 4,
+      tokens: ["BTC", "ETH", "BNB"],
+      scoreMin: 40,
+      holdH: 48,
+      sizeMax: "$25",
+      drop: "-2% a -10%",
+      recovery: "+0.5% a +5%",
       color: "from-blue-500/20 to-blue-600/10",
-      border: "border-blue-500/30"
+      border: "border-blue-500/30",
+      regimeBlock: "Nenhum",
     },
     {
-      tier: "T2 - Alts AI/DeFi/L1/L2",
-      icon: "🚀",
-      tokens: ["SOL", "LINK", "AVAX", "SUI", "NEAR", "INJ", "RENDER", "TIA", "SEI", "OP", "ARB", "APT", "ATOM", "HBAR", "...", "FET ✓", "THE ✓"],
-      signals: ["TREND_PULLBACK", "BREAKOUT_CONFIRMED", "REVERSAL_SPOT", "EVENT_WHALE"],
-      maxSize: "15%",
-      families: 4,
+      tier: "OPORTUNIDADE",
+      icon: "📈",
+      tokens: ["LINK", "AAVE", "UNI", "XRP", "SOL", "TAO", "NEAR", "ARB", "RENDER"],
+      scoreMin: 55,
+      holdH: 24,
+      sizeMax: "$18",
+      drop: "-2.5% a -12%",
+      recovery: "+0.8% a +4%",
       color: "from-cyan-500/20 to-indigo-500/10",
-      border: "border-cyan-500/30"
+      border: "border-cyan-500/30",
+      regimeBlock: "Score +5 em RISK_OFF",
     },
     {
-      tier: "T3 - Memes",
+      tier: "PRIVACY",
+      icon: "🔒",
+      tokens: ["ZEC", "XMR"],
+      scoreMin: 70,
+      holdH: 12,
+      sizeMax: "$8",
+      drop: "-3% a -15%",
+      recovery: "+1.2% a +5%",
+      color: "from-purple-500/20 to-purple-500/10",
+      border: "border-purple-500/30",
+      regimeBlock: "BLOQUEADO em RISK_OFF",
+    },
+    {
+      tier: "TATICO",
       icon: "⚡",
-      tokens: ["XRP", "DOGE", "ADA", "PEPE", "DOT", "SHIB", "BONK", "WIF", "FLOKI", "..."],
-      signals: ["BREAKOUT_CONFIRMED", "REVERSAL_SPOT", "EVENT_WHALE"],
-      maxSize: "12%",
-      families: 3,
+      tokens: ["FET", "INJ", "NMR", "CFG", "DUSK"],
+      scoreMin: 48,
+      holdH: 8,
+      sizeMax: "$12",
+      drop: "-1.8% a -8%",
+      recovery: "+0.9% a +3%",
       color: "from-emerald-500/20 to-emerald-500/10",
-      border: "border-emerald-500/30"
-    }
+      border: "border-emerald-500/30",
+      regimeBlock: "Score +15 em RISK_OFF (FET +10)",
+    },
   ];
 
   const indicators = [
-    { name: "MACD", desc: "Moving Average Convergence Divergence (12,26,9)", formula: "EMA12 - EMA26" },
-    { name: "StochRSI", desc: "Stochastic RSI para reversões", formula: "RSI estocástico sobre 14 períodos" },
-    { name: "Squeeze TTM", desc: "Detecta consolidação antes de breakout", formula: "Bollinger dentro Keltner" },
-    { name: "ADX", desc: "Average Directional Index (força de trend)", formula: "+DM/-DM smoothed" },
-    { name: "ATR", desc: "Average True Range (volatilidade)", formula: "True Range de 14 períodos" },
-    { name: "RSI", desc: "Relative Strength Index", formula: "14 períodos" },
+    { name: "EMA8 / EMA21", desc: "Exponential Moving Average — posição e distância", formula: "ewm(span=8/21, adjust=False)" },
+    { name: "RSI Wilder's 14", desc: "Relative Strength Index com smoothing Wilder's", formula: "alpha=1/14 (não SMA)" },
+    { name: "ATR 14", desc: "Average True Range — volatilidade para SL/TP", formula: "True Range de 14 períodos" },
+    { name: "Volume ratio", desc: "Volume atual vs média 20 candles", formula: "vol / vol_avg20" },
+    { name: "mom3 / mom10", desc: "Momentum 3 e 10 candles", formula: "pct_change(3) * 100" },
+    { name: "Bollinger Width", desc: "Largura das bandas — volatilidade relativa", formula: "(BB_upper - BB_lower) / BB_mid" },
   ];
 
   return (
     <div className="space-y-8">
-      {/* Strategy Cards */}
+      {/* Category Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {strategies.map((strat, idx) => (
-          <div key={idx} className={`bg-gradient-to-br ${strat.color} border ${strat.border} rounded-2xl p-6 backdrop-blur-sm`}>
+        {categories.map((cat, idx) => (
+          <div key={idx} className={`bg-gradient-to-br ${cat.color} border ${cat.border} rounded-2xl p-6 backdrop-blur-sm`}>
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-4xl">{strat.icon}</span>
+              <span className="text-4xl">{cat.icon}</span>
               <div>
-                <h3 className="text-2xl font-bold text-white">{strat.tier}</h3>
-                <p className="text-sm text-gray-400">Max Size: {strat.maxSize}</p>
+                <h3 className="text-2xl font-bold text-white">{cat.tier}</h3>
+                <p className="text-sm text-gray-400">Score ≥ {cat.scoreMin} • Hold {cat.holdH}h • Max {cat.sizeMax}</p>
               </div>
             </div>
-            <div className="mb-4">
-              <h4 className="text-sm font-semibold text-gray-400 mb-2">Tokens ({strat.tokens.length}):</h4>
+            <div className="mb-3">
+              <h4 className="text-sm font-semibold text-gray-400 mb-2">Tokens ({cat.tokens.length}):</h4>
               <div className="flex flex-wrap gap-2">
-                {strat.tokens.map(token => (
+                {cat.tokens.map(token => (
                   <span key={token} className="px-2 py-1 bg-gray-800/50 rounded text-xs text-gray-300">{token}</span>
                 ))}
               </div>
             </div>
-            <div>
-              <h4 className="text-sm font-semibold text-gray-400 mb-2">Sinais ({strat.signals.length}):</h4>
-              <div className="flex flex-wrap gap-2">
-                {strat.signals.map(signal => (
-                  <span key={signal} className="px-2 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded text-xs text-cyan-400">{signal}</span>
-                ))}
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <div className="bg-gray-900/40 rounded p-2">
+                <span className="text-gray-500">Drop: </span>
+                <span className="text-cyan-400 font-mono">{cat.drop}</span>
               </div>
+              <div className="bg-gray-900/40 rounded p-2">
+                <span className="text-gray-500">Recovery: </span>
+                <span className="text-emerald-400 font-mono">{cat.recovery}</span>
+              </div>
+            </div>
+            <div className="mt-2 bg-gray-900/40 rounded p-2 text-xs">
+              <span className="text-gray-500">Regime: </span>
+              <span className="text-yellow-400">{cat.regimeBlock}</span>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Indicators */}
+      {/* REVERSAL_TRANSITION Setup */}
       <div className="bg-gray-900/30 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm">
         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-          <span className="text-3xl">📊</span>
-          Setup Families v17.2
+          <span className="text-3xl">🔄</span>
+          REVERSAL_TRANSITION — Lógica do Setup
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 rounded-xl p-4">
-            <h4 className="text-lg font-bold text-yellow-400 mb-2">① REVERSAL_SPOT</h4>
-            <p className="text-sm text-gray-400 mb-2">Entrada precoce em reversão sem tendência confirmada</p>
-            <div className="text-xs text-gray-500 font-mono">ADX 12-20 • RSI 30-55 • Momentum&gt;0</div>
+            <h4 className="text-lg font-bold text-yellow-400 mb-2">① Drop recente</h4>
+            <p className="text-sm text-gray-400 mb-2">Queda significativa nos últimos 48 candles (lookback)</p>
+            <div className="text-xs text-gray-500 font-mono">high → low temporal (não invertido)</div>
           </div>
           <div className="bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 rounded-xl p-4">
-            <h4 className="text-lg font-bold text-emerald-400 mb-2">② TREND_PULLBACK</h4>
-            <p className="text-sm text-gray-400 mb-2">Pullback em tendência confirmada</p>
-            <div className="text-xs text-gray-500 font-mono">EMA8&gt;EMA21&gt;EMA50 • ADX 15-20 • price&lt;3% EMA8</div>
+            <h4 className="text-lg font-bold text-emerald-400 mb-2">② Recovery confirmada</h4>
+            <p className="text-sm text-gray-400 mb-2">Bounce do low — sinal de transição</p>
+            <div className="text-xs text-gray-500 font-mono">(close - recent_low) / recent_low × 100</div>
           </div>
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-4">
-            <h4 className="text-lg font-bold text-purple-400 mb-2">③ BREAKOUT_CONFIRMED</h4>
-            <p className="text-sm text-gray-400 mb-2">Breakout confirmado com volume</p>
-            <div className="text-xs text-gray-500 font-mono">Volume&gt;1.2x • price&gt;high20 • Momentum&gt;0.2%</div>
+            <h4 className="text-lg font-bold text-purple-400 mb-2">③ EMA8 proximal</h4>
+            <p className="text-sm text-gray-400 mb-2">Preço perto da EMA8 — nem esticado, nem abaixo</p>
+            <div className="text-xs text-gray-500 font-mono">-1.5% ≤ (close/ema8 - 1) × 100 ≤ +2.5%</div>
           </div>
           <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-xl p-4">
-            <h4 className="text-lg font-bold text-cyan-400 mb-2">④ EVENT_WHALE</h4>
-            <p className="text-sm text-gray-400 mb-2">Detecção de whale com early entry</p>
-            <div className="text-xs text-gray-500 font-mono">Change&gt;10% • 1h&lt;50% change • Volume&gt;$2M</div>
+            <h4 className="text-lg font-bold text-cyan-400 mb-2">④ RSI + Momentum neutros</h4>
+            <p className="text-sm text-gray-400 mb-2">Zona de reversão sem extremos</p>
+            <div className="text-xs text-gray-500 font-mono">RSI 38-62 • mom3 &gt; -0.5% • vol_ratio ≥ 0.8</div>
           </div>
         </div>
+
         <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <span className="text-2xl">📈</span>
+          <span className="text-2xl">📊</span>
           Indicadores Técnicos
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -716,95 +710,49 @@ function StrategiesSection() {
         </div>
       </div>
 
-      {/* Whale Detection Multi-Chain */}
-      <div className="bg-gradient-to-br from-purple-900/20 via-cyan-900/20 to-emerald-900/20 border border-purple-500/30 rounded-2xl p-6 backdrop-blur-sm">
+      {/* Pump Radar detail */}
+      <div className="bg-gradient-to-br from-orange-900/20 via-yellow-900/10 to-red-900/20 border border-orange-500/30 rounded-2xl p-6 backdrop-blur-sm">
         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-          <span className="text-3xl">🐋</span>
-          Whale Radar v17.2 Early Detection
+          <span className="text-3xl">🚀</span>
+          Pump Radar v22 — Observacional + Novas Listagens
         </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="text-lg font-bold text-purple-400 mb-3">📡 Early Detection System</h4>
+            <h4 className="text-lg font-bold text-orange-400 mb-3">📡 Detecção de Pump</h4>
             <div className="space-y-3">
-              <div className="bg-gray-900/50 border border-purple-500/20 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl">①</span>
-                  <span className="font-bold text-cyan-400">Early Entry +10%</span>
-                  <span className="ml-auto px-2 py-1 bg-cyan-500/20 rounded text-xs text-cyan-400">NOVO</span>
-                </div>
-                <p className="text-sm text-gray-400">Entra no INÍCIO do pump (não topo!)</p>
-                <p className="text-xs text-gray-500 mt-1">1h momentum &lt; 50% do change 24h</p>
+              <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4">
+                <div className="font-bold text-cyan-400 mb-1">Pump clássico</div>
+                <p className="text-sm text-gray-400">Fora do universo • +5% mín • spread ≤ 0.5%</p>
+                <p className="text-xs text-gray-500 mt-1">Stretch máx 12% • vol ≥ $1M</p>
               </div>
-
-              <div className="bg-gray-900/50 border border-purple-500/20 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl">②</span>
-                  <span className="font-bold text-orange-400">Snipe Híbrido</span>
-                  <span className="ml-auto px-2 py-1 bg-orange-500/20 rounded text-xs text-orange-400">ILIMITADO</span>
-                </div>
-                <p className="text-sm text-gray-400">QUALQUER token +25% • 8% size • TP 5%</p>
-                <p className="text-xs text-gray-500 mt-1">Max 1 posição • Max 2 trades/dia</p>
-              </div>
-
-              <div className="bg-gray-900/50 border border-purple-500/20 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl">③</span>
-                  <span className="font-bold text-emerald-400">Validados (72 tokens)</span>
-                  <span className="ml-auto px-2 py-1 bg-emerald-500/20 rounded text-xs text-emerald-400">CONFIRMADO</span>
-                </div>
-                <p className="text-sm text-gray-400">Threshold +12% conservative • 15% size</p>
-                <p className="text-xs text-gray-500 mt-1">RSI 30-50 • Momentum positivo</p>
-              </div>
-
-              <div className="bg-gray-900/50 border border-purple-500/20 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl">④</span>
-                  <span className="font-bold text-yellow-400">Quality-Based Sizing</span>
-                </div>
-                <p className="text-sm text-gray-400">Score 35-80+ → multiplica 0.5x a 1.5x</p>
-                <p className="text-xs text-gray-500 mt-1">Melhor setup = posição maior</p>
+              <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4">
+                <div className="font-bold text-yellow-400 mb-1">Early pump (universo)</div>
+                <p className="text-sm text-gray-400">vol≥2.5× + mom3 +2% a +8% + RSI≤65</p>
+                <p className="text-xs text-gray-500 mt-1">ema8_dist ≤ 3% • cooldown 60min/token</p>
               </div>
             </div>
           </div>
-
           <div>
-            <h4 className="text-lg font-bold text-purple-400 mb-3">🎯 Thresholds por Modo</h4>
+            <h4 className="text-lg font-bold text-emerald-400 mb-3">🆕 Novas Listagens</h4>
             <div className="space-y-3 text-sm">
               <div className="bg-gray-900/50 border border-emerald-500/20 rounded-lg p-4">
-                <div className="font-bold text-emerald-400 mb-1">✅ CONSERVATIVE</div>
-                <p className="text-gray-400">Min Score: 45 pts • Max Loss: $1.00</p>
-                <p className="text-xs text-gray-500 mt-1">Threshold: +12% • RSI: 30-50 • ADX: 12+</p>
+                <div className="font-bold text-emerald-400 mb-1">Critérios de detecção</div>
+                <p className="text-gray-400">vol24h ≥ $5M + variação ≥ ±20%</p>
+                <p className="text-xs text-gray-500 mt-1">Fora do universo + fora da blocklist</p>
               </div>
-
-              <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4">
-                <div className="font-bold text-orange-400 mb-1">⚡ AGGRESSIVE</div>
-                <p className="text-gray-400">Min Score: 35 pts • Max Loss: $1.50</p>
-                <p className="text-xs text-gray-500 mt-1">Threshold: +10% • RSI: 25-55 • ADX: 8+</p>
-              </div>
-
-              <div className="bg-gray-900/50 border border-cyan-500/20 rounded-lg p-4">
-                <div className="font-bold text-cyan-400 mb-1">🎯 EARLY ENTRY CONFIRMATION</div>
-                <p className="text-gray-400">1h momentum &lt; 50% do change 24h</p>
-                <p className="text-xs text-gray-500 mt-1">Ex: 24h=+20%, 1h&lt;+10% → early entry ✓</p>
-              </div>
-
-              <div className="bg-gray-900/50 border border-yellow-500/20 rounded-lg p-4">
-                <div className="font-bold text-yellow-400 mb-1">⚡ Max Loss Proteção</div>
-                <p className="text-gray-400">Conservative: $1.00 | Aggressive: $1.50</p>
-                <p className="text-xs text-gray-500 mt-1">+100-200% tolerância vs v16 ($0.50)</p>
+              <div className="bg-gray-900/50 border border-emerald-500/20 rounded-lg p-4">
+                <div className="font-bold text-cyan-400 mb-1">Ação</div>
+                <p className="text-gray-400">Alerta Telegram — avaliar manualmente</p>
+                <p className="text-xs text-gray-500 mt-1">Verificação: a cada 1h (ciclo 360)</p>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="bg-gray-900/50 border border-purple-500/20 rounded-lg p-4 text-center">
+        <div className="mt-6 bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 text-center">
           <p className="text-sm text-gray-400">
-            <span className="font-bold text-purple-400">WHALE RADAR v17.2 EARLY DETECTION:</span>
-            72 tokens validados + snipe híbrido ilimitado.
-            <strong className="text-emerald-400">[VALIDADO] ✅</strong> = +12% conservative, 15% size, TP 6% |
-            <strong className="text-orange-400">[SNIPE] 🎯</strong> = QUALQUER token +25%, 8% size, TP 5% |
-            <strong className="text-cyan-400">[EARLY]</strong> = 1h&lt;50% change → entra no início!
+            <span className="font-bold text-orange-400">PUMP RADAR v22:</span> Modo puramente observacional.
+            <strong className="text-yellow-400"> Sem entrada automática.</strong>
+            Alertas enviados ao Telegram para avaliação manual.
           </p>
         </div>
       </div>

@@ -10,8 +10,8 @@ export function Footer() {
               <AtomLogo size={32} />
             </div>
             <div>
-              <div className="text-sm font-semibold">AETHER v22.3 REVERSAL_TRANSITION</div>
-              <div className="text-xs text-muted">Paper Trading VPS 24/7</div>
+              <div className="text-sm font-semibold">AETHERJ V17.2 PROFESSIONAL QUANTUM + EARLY DETECTION WHALE MODE</div>
+              <div className="text-xs text-muted">Trading Bot 24/7</div>
             </div>
           </div>
 
@@ -20,7 +20,7 @@ export function Footer() {
               <span className="w-2 h-2 rounded-full bg-profit animate-pulse" />
               <span>System Online</span>
             </div>
-            <span>v22.3 | 19 tokens | REVERSAL_TRANSITION | Regime Filter | Pump Radar | VPS Hardened</span>
+            <span>V17.2 | 72 tokens | 2 Families | Market Regime | Whale Mode | Early Detection</span>
           </div>
         </div>
       </div>
