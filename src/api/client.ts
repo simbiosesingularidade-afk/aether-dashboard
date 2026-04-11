@@ -4,7 +4,7 @@ import type { AetherState } from '../types/state';
 // Em desenvolvimento usa o proxy do Vite (/api)
 // Em produção usa caminho relativo (/api) pois está no mesmo servidor
 const API_BASE = '/api';
-const USERNAME = 'admin';
+const USERNAME = 'admin443';
 const PASSWORD = 'Aetherj2026!';
 
 const authString = btoa(`${USERNAME}:${PASSWORD}`);

@@ -1,76 +1,69 @@
-// Types for AETHER state from state_v14.json (used by v15 MEGA PUMP)
+// Types for AETHER v22.7 state (state_v22.json)
 
 export interface AetherState {
-  pos: Record<string, Position>;
-  bal?: number; // USDT balance (livre)
-  equity?: number; // Total equity (cash + positions)
-  profit_g: number;
-  profit_n: number;
-  fees: number;
+  equity: number;
+  balance_usdt: number;
+  positions: Record<string, Position>;
   trades: Trade[];
-  cw: number; // consecutive wins
-  cl: number; // consecutive losses
-  rmult: number; // risk multiplier
-  kelly: number;
-  hedge: boolean;
+  daily_pnl_usd: number;
+  daily_loss_usd: number;
+  daily_trades: number;
+  consecutive_losses: number;
+  loss_streak: number;
   blacklist: Record<string, string>;
-  cools: Record<string, string>;
-  pair_stats: Record<string, PairStats>;
-  dloss: number; // daily loss
-  ddate: string; // daily loss date
-  whale_flows: Record<string, WhaleFlow>;
-  sector_stats: Record<string, SectorStats>;
+  cooldowns: Record<string, string>;
+  sector_losses: Record<string, number>;
+  kill_switch_active: boolean;
+  kill_switch_reason: string;
+  regime: string;
+  last_update: string;
+  daily_reset_date: string;
+  soft_exits_today: number;
   _error?: string;
 }
 
 export interface Position {
-  sym: string;
+  symbol: string;
+  category: string;
   coin: string;
-  entry: number;
+  entry_price: number;
   qty: number;
-  high: number;
-  time: string;
-  strat: string;
-  sl: number;
-  tp: number;
-  tier: number; // 0 = PAXG, 1 = T1, 2 = T2, 3 = T3
-  gold: boolean;
-  size: number;
-  fees: number;
-  be: number; // breakeven
-  partial_done: boolean;
+  qty_original: number;
+  sl_price: number;
+  tp_price: number;
+  be_price: number | null;
+  trail_price: number | null;
+  atr: number;
+  entry_time: string;
+  strategy: string;
+  tier: number;
+  size_usd: number;
+  fees_usd: number;
+  high_watermark: number;
+  be_triggered: boolean;
+  trail_triggered: boolean;
+  partial_tp_done: boolean;
+  soft_time_exit_triggered: boolean;
+  last_soft_exit_increment: number;
 }
 
 export interface Trade {
-  ts: string;
-  sym: string;
-  strat: string;
-  gross: number;
-  net: number;
-  fees: number;
-  mins: number;
-  reason: string; // stop, target, trail, breakeven, time_profit, time_loss, hedge, manual
+  symbol: string;
+  category: string;
+  coin: string;
+  entry_price: number;
+  exit_price: number;
+  qty: number;
+  entry_time: string;
+  exit_time: string;
+  strategy: string;
+  tier: number;
+  size_usd: number;
+  fees_usd: number;
+  gross_pnl_usd: number;
+  net_pnl_usd: number;
+  pnl_pct: number;
+  hold_time_min: number;
+  entry_reason: string;
+  exit_reason: string;
 }
-
-export interface PairStats {
-  w: number; // wins
-  l: number; // losses
-  pnl: number; // profit and loss
-}
-
-export interface WhaleFlow {
-  ts: string;
-  vol_r: number; // volume ratio
-  type: string; // PROACTIVE, REACTIVE
-}
-
-export interface SectorStats {
-  l: number; // losses
-  last_loss: string;
-}
-
-export type PnLClass = 'positive' | 'negative' | 'neutral';
-
-export type TradeReason = 'stop' | 'target' | 'trail' | 'breakeven' | 'time_profit' | 'time_loss' | 'hedge' | 'manual';
-
-export type Tier = 0 | 1 | 2 | 3;
