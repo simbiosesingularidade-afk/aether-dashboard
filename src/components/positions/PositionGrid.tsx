@@ -3,10 +3,9 @@ import { PositionCard } from './PositionCard';
 
 interface PositionGridProps {
   positions: Record<string, Position>;
-  whaleFlows: Record<string, unknown>;
 }
 
-export function PositionGrid({ positions, whaleFlows }: PositionGridProps) {
+export function PositionGrid({ positions }: PositionGridProps) {
   const positionEntries = Object.entries(positions);
 
   if (positionEntries.length === 0) {
@@ -22,7 +21,7 @@ export function PositionGrid({ positions, whaleFlows }: PositionGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {positionEntries.map(([sym, pos]) => (
-        <PositionCard key={sym} position={pos} hasWhaleFlow={sym in whaleFlows} />
+        <PositionCard key={sym} position={pos} />
       ))}
     </div>
   );

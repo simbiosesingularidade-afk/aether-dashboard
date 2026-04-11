@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white font-sans">
-      <Header hedge={state.hedge} lastUpdate={Date.now()} />
+      <Header hedge={false} lastUpdate={Date.now()} />
 
       <main className="max-w-[1800px] mx-auto px-6 py-8">
         {/* Hero Section */}
@@ -89,10 +89,10 @@ function App() {
               <div className="bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-cyan-500/30 rounded-2xl p-6 backdrop-blur-sm min-w-[200px]">
                 <div className="text-gray-400 text-sm mb-1">Saldo Total</div>
                 <div className="text-4xl font-bold text-white mb-1">
-                  ${((state.bal || 0) + Object.values(state.pos || {}).reduce((sum, p) => sum + (p.size || 0), 0)).toFixed(2)}
+                  ${(state.equity ?? 0).toFixed(2)}
                 </div>
-                <div className={`text-sm font-semibold ${(state.profit_n || 0) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                  {(state.profit_n || 0) >= 0 ? '+' : ''}${(state.profit_n || 0).toFixed(2)}
+                <div className={`text-sm font-semibold ${(state.daily_pnl_usd || 0) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  {(state.daily_pnl_usd || 0) >= 0 ? '+' : ''}${(state.daily_pnl_usd || 0).toFixed(2)}
                 </div>
               </div>
             </div>
@@ -252,11 +252,11 @@ function App() {
                       <span className="text-3xl">📊</span>
                       Posições Abertas
                       <span className="ml-3 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-sm font-bold border border-cyan-500/30">
-                        {Object.keys(state.pos).length}
+                        {Object.keys(state.positions ?? {}).length}
                       </span>
                     </h2>
                   </div>
-                  <PositionGrid positions={state.pos} whaleFlows={state.whale_flows} />
+                  <PositionGrid positions={state.positions ?? {}} />
 
                   {/* Trail Info Card */}
                   <div className="mt-6 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-emerald-500/10 border border-emerald-500/20 rounded-xl p-5">
@@ -343,7 +343,7 @@ function App() {
                       label="Win Rate"
                       value={(() => {
                         const trades = state.trades ?? [];
-                        const wins = trades.filter(t => t.net > 0).length;
+                        const wins = trades.filter(t => t.net_pnl_usd > 0).length;
                         const total = trades.length;
                         return total > 0 ? ((wins / total) * 100).toFixed(0) + '%' : '0%';
                       })()}
@@ -351,14 +351,14 @@ function App() {
                     />
                     <StatCard
                       icon="🔥"
-                      label="Streak"
-                      value={state.cw > 0 ? `W${state.cw}` : state.cl > 0 ? `L${state.cl}` : '—'}
-                      color={state.cw > 0 ? 'text-emerald-400' : state.cl > 0 ? 'text-red-400' : 'text-gray-500'}
+                      label="Loss Streak"
+                      value={(state.loss_streak ?? 0) > 0 ? `L${state.loss_streak}` : '—'}
+                      color={(state.loss_streak ?? 0) > 0 ? 'text-red-400' : 'text-gray-500'}
                     />
                     <StatCard
                       icon="💸"
                       label="Fees Hoje"
-                      value={`-$${state.fees.toFixed(2)}`}
+                      value={`-$${(state.trades ?? []).reduce((s, t) => s + (t.fees_usd ?? 0), 0).toFixed(2)}`}
                       color="text-red-400"
                     />
                   </div>
@@ -371,10 +371,9 @@ function App() {
                     Restrições Ativas
                   </h2>
                   <RestrictionsPanel
-                    blacklist={state.blacklist}
-                    cools={state.cools}
-                    whaleFlows={state.whale_flows}
-                    sectorStats={state.sector_stats}
+                    blacklist={state.blacklist ?? {}}
+                    cooldowns={state.cooldowns ?? {}}
+                    sectorLosses={state.sector_losses ?? {}}
                   />
                 </section>
               </div>
@@ -387,14 +386,14 @@ function App() {
                   <span className="text-3xl">⚙️</span>
                   Risk Engine
                 </h2>
-                <RiskEngine kelly={state.kelly} rmult={state.rmult} />
+                <RiskEngine />
               </div>
               <div className="bg-gray-900/30 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm">
                 <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
                   <span className="text-3xl">📊</span>
-                  Stats por Tier
+                  Stats por Par
                 </h2>
-                <PairStatsTable pairStats={state.pair_stats} />
+                <PairStatsTable pairStats={{}} />
               </div>
               <div className="bg-gray-900/30 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm">
                 <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">

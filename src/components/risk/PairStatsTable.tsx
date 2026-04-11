@@ -1,8 +1,13 @@
-import type { PairStats } from '../../types/state';
 import { pnlClass } from '../../lib/formatters';
 
+interface PairStat {
+  w: number;
+  l: number;
+  pnl: number;
+}
+
 interface PairStatsTableProps {
-  pairStats: Record<string, PairStats>;
+  pairStats: Record<string, PairStat>;
 }
 
 export function PairStatsTable({ pairStats }: PairStatsTableProps) {

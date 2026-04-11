@@ -3,17 +3,16 @@ import { tsAgo, tierEmoji, tierLabel, pnlClass, formatPercent } from '../../lib/
 
 interface PositionCardProps {
   position: Position;
-  hasWhaleFlow: boolean;
 }
 
-export function PositionCard({ position, hasWhaleFlow }: PositionCardProps) {
-  const { coin, entry, size, sl, tp, high, time, strat, tier, gold, partial_done } = position;
+export function PositionCard({ position }: PositionCardProps) {
+  const { coin, entry_price, size_usd, sl_price, tp_price, high_watermark, entry_time, strategy, tier, partial_tp_done } = position;
 
-  const slPct = ((sl - entry) / entry) * 100;
-  const tpPct = ((tp - entry) / entry) * 100;
-  const highPnl = ((high - entry) / entry) * 100;
+  const slPct = ((sl_price - entry_price) / entry_price) * 100;
+  const tpPct = ((tp_price - entry_price) / entry_price) * 100;
+  const highPnl = ((high_watermark - entry_price) / entry_price) * 100;
   const trailActive = highPnl > 0.4;
-  const ago = tsAgo(time);
+  const ago = tsAgo(entry_time);
 
   // Calculate progress to TP
   const tpProgress = Math.min(100, Math.max(0, (highPnl / tpPct) * 100));
@@ -31,8 +30,7 @@ export function PositionCard({ position, hasWhaleFlow }: PositionCardProps) {
     <div className={`
       group relative overflow-hidden bg-surface border rounded-2xl p-5
       transition-all duration-300 hover:scale-[1.02] hover:shadow-xl
-      ${gold ? 'border-gold/50' : 'border-border'}
-      hover:border-accent-blue/50
+      border-border hover:border-accent-blue/50
     `}>
       {/* Background gradient based on tier */}
       <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-50`} />
@@ -42,28 +40,21 @@ export function PositionCard({ position, hasWhaleFlow }: PositionCardProps) {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <span className="text-2xl">{tierEmoji(tier, gold)}</span>
+            <span className="text-2xl">{tierEmoji(tier)}</span>
             <div>
               <div className="font-bold text-lg text-white flex items-center gap-2">
                 {coin}
-                {partial_done && (
+                {partial_tp_done && (
                   <span className="px-2 py-0.5 rounded-full bg-gold/20 text-gold text-xs font-semibold">
                     50% SOLD
                   </span>
                 )}
-                {hasWhaleFlow && (
-                  <span className="px-2 py-0.5 rounded-full bg-info/20 text-info text-xs font-semibold">
-                    🐋 WHALE
-                  </span>
-                )}
               </div>
-              <div className="text-xs text-muted font-mono">{strat}</div>
+              <div className="text-xs text-muted font-mono">{strategy}</div>
             </div>
           </div>
           <div className="text-right">
-            <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-              gold ? 'bg-gold/20 text-gold' : 'bg-surfaceHighlight text-muted'
-            }`}>
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-surfaceHighlight text-muted">
               {tierLabel(tier)}
             </span>
             <div className="text-xs text-muted mt-1">{ago}</div>
@@ -74,11 +65,11 @@ export function PositionCard({ position, hasWhaleFlow }: PositionCardProps) {
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="bg-surfaceHighlight/50 backdrop-blur rounded-lg p-3">
             <div className="text-xs text-muted uppercase tracking-wider mb-1">Entry</div>
-            <div className="text-lg font-bold font-mono text-white">${entry.toFixed(2)}</div>
+            <div className="text-lg font-bold font-mono text-white">${entry_price.toFixed(2)}</div>
           </div>
           <div className="bg-surfaceHighlight/50 backdrop-blur rounded-lg p-3">
             <div className="text-xs text-muted uppercase tracking-wider mb-1">Size</div>
-            <div className="text-lg font-bold font-mono text-white">${size.toFixed(2)}</div>
+            <div className="text-lg font-bold font-mono text-white">${size_usd.toFixed(2)}</div>
           </div>
         </div>
 
