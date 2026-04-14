@@ -8,7 +8,7 @@ export function PerformanceChart({ trades }: PerformanceChartProps) {
   // Calculate cumulative PnL over time
   const cumulativePnL = [0];
   for (const trade of trades) {
-    cumulativePnL.push(cumulativePnL[cumulativePnL.length - 1] + trade.net);
+    cumulativePnL.push(cumulativePnL[cumulativePnL.length - 1] + (trade.net_pnl_usd ?? 0));
   }
 
   const totalPnL = cumulativePnL[cumulativePnL.length - 1];

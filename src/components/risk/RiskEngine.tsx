@@ -1,28 +1,25 @@
-interface RiskEngineProps {
-  kelly: number;
-  rmult: number;
-}
-
-export function RiskEngine({ kelly, rmult }: RiskEngineProps) {
+export function RiskEngine() {
   const riskParams = [
-    { label: 'Kelly Criterion', value: `${(kelly * 100).toFixed(2)}%`, highlight: true },
-    { label: 'Risk Multiplier', value: `${rmult.toFixed(1)}x ${rmult > 1 ? '🚀' : rmult < 1 ? '⚠️' : ''}` },
-    { label: 'T1/T2/T3 Sizing', value: '$18 / $15 / $12' },
-    { label: 'PAXG Cap', value: '$20 (15% equity)' },
-    { label: 'Stop Loss Dinâmico', value: '1.0–2.0% ATR' },
-    { label: 'Take Profit', value: '3.0–7.0%' },
-    { label: 'Breakeven / Trail', value: '+0.2% / +0.4%' },
-    { label: 'Trail Gap', value: 'Dynamic: 0.4% → 8%', color: 'text-info' },
-    { label: 'Partial Profit', value: '50% @ 60% TP' },
-    { label: 'Cooldown', value: '60/90/120 min' },
-    { label: 'Blacklist', value: '2 horas' },
-    { label: 'Anti-Vício v2', value: '2 trades = block/day', color: 'text-loss' },
-    { label: 'Sector Lock', value: '4h (2 losses)' },
-    { label: 'Max Trades', value: '40/dia (global)', color: 'text-info' },
-    { label: 'BTC Filter', value: '-5%' },
-    { label: 'Market Health', value: '15min momentum' },
-    { label: 'Whale Boost', value: '1.5x se &gt; 25% PnL', color: 'text-info' },
-    { label: 'TP via Limit', value: 'Maker 0% fee', color: 'text-info' },
+    { label: 'Position Size Máx', value: '10% equity (v22)', highlight: true },
+    { label: 'Risk / Trade', value: '$1.00 (ATR-based)' },
+    { label: 'CORE / OPORT / PRIVACY / TATICO', value: '$25 / $18 / $8 / $12' },
+    { label: 'Stop Loss ATR', value: '1.2× ATR (2.0–3.5%)', color: 'text-loss' },
+    { label: 'Take Profit (RR mín)', value: '2× SL' },
+    { label: 'Breakeven', value: '+0.5% → SL+0.15%' },
+    { label: 'Partial TP', value: '50% @ +1.0–1.5%' },
+    { label: 'Trail L1 / L2 / L3', value: '+1%/0.8% | +2.5%/0.5% | +5%/0.3%', color: 'text-info' },
+    { label: 'TATICO trail mult', value: '×0.7 (mais apertado)' },
+    { label: 'Soft Time Stop', value: '0.25%/15min (12h→24h)' },
+    { label: 'Daily Loss Máx', value: '$3.00 ou 5% equity', color: 'text-loss' },
+    { label: 'Kill Switch streak', value: '4 losses seguidos', color: 'text-loss' },
+    { label: 'Kill Switch WR', value: '< 30% (últimos 20 trades)' },
+    { label: 'Cooldown pós-loss', value: '2h no token' },
+    { label: 'Blacklist TATICO', value: '4h após 1 loss' },
+    { label: 'Sector Lock', value: '2 losses/setor/dia' },
+    { label: 'Max Posições', value: '3 simultâneas' },
+    { label: 'Max Trades/dia', value: '15 (global)' },
+    { label: 'Spread Máx', value: '0.3% | Slippage 0.5%' },
+    { label: 'Fee Rate', value: '0.1%/trade' },
   ];
 
   return (
@@ -30,7 +27,7 @@ export function RiskEngine({ kelly, rmult }: RiskEngineProps) {
       <div className="bg-gradient-to-r from-accent-blue/20 to-accent-indigo/20 px-4 py-3 border-b border-border">
         <div className="text-sm font-bold text-white flex items-center gap-2">
           <span>⚙️</span>
-          Kelly Quarter (Ed Thorp)
+          Risk Engine v22
         </div>
       </div>
 

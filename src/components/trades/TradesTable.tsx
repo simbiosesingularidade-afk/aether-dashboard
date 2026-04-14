@@ -49,8 +49,9 @@ export function TradesTable({ trades, limit = 30 }: TradesTableProps) {
           </thead>
           <tbody>
             {recentTrades.map((trade, idx) => {
-              const coin = trade.sym.split('/')[0];
-              const netClass = pnlClass(trade.net);
+              const coin = trade.coin ?? trade.symbol?.split('/')[0] ?? '?';
+              const net = trade.net_pnl_usd ?? 0;
+              const netClass = pnlClass(net);
 
               return (
                 <tr
@@ -58,8 +59,8 @@ export function TradesTable({ trades, limit = 30 }: TradesTableProps) {
                   className="border-b border-border/50 hover:bg-surfaceHighlight/50 transition-colors"
                 >
                   <td className="py-3 px-4">
-                    <span className={`text-lg ${trade.net > 0 ? '' : ''}`}>
-                      {trade.net > 0 ? '🟢' : '🔴'}
+                    <span className="text-lg">
+                      {net > 0 ? '🟢' : '🔴'}
                     </span>
                   </td>
                   <td className="py-3 px-4">
@@ -67,25 +68,25 @@ export function TradesTable({ trades, limit = 30 }: TradesTableProps) {
                   </td>
                   <td className="py-3 px-4">
                     <span className="px-2 py-1 rounded-full bg-accent-blue/20 text-accent-blue text-xs font-mono font-semibold">
-                      {trade.strat.slice(0, 10)}
+                      {(trade.strategy ?? trade.exit_reason ?? '').slice(0, 10)}
                     </span>
                   </td>
                   <td className="py-3 px-4 text-right">
                     <span className={`font-mono font-bold ${
                       netClass === 'positive' ? 'text-profit' : netClass === 'negative' ? 'text-loss' : 'text-muted'
                     }`}>
-                      {trade.net >= 0 ? '+' : ''}${trade.net.toFixed(3)}
+                      {net >= 0 ? '+' : ''}${net.toFixed(3)}
                     </span>
                   </td>
                   <td className="py-3 px-4">
-                    <span className="text-lg">{reasonIcon(trade.reason)}</span>
+                    <span className="text-lg">{reasonIcon(trade.exit_reason ?? '')}</span>
                   </td>
                   <td className="py-3 px-4">
-                    <span className="text-sm text-muted">{formatDuration(trade.mins)}</span>
+                    <span className="text-sm text-muted">{formatDuration(trade.hold_time_min ?? 0)}</span>
                   </td>
                   <td className="py-3 px-4">
                     <span className="text-sm text-muted font-mono">
-                      {trade.ts.slice(0, 16).replace('T', ' ')}
+                      {(trade.exit_time ?? '').slice(0, 16).replace('T', ' ')}
                     </span>
                   </td>
                 </tr>
