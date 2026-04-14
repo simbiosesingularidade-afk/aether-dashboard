@@ -27,7 +27,7 @@ function App() {
             </div>
           </div>
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.8.3 REVERSAL_TRANSITION</p>
+          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.8.4 REVERSAL_TRANSITION</p>
           <p className="text-gray-500 text-sm mt-2">Inicializando dashboard...</p>
         </div>
       </div>
@@ -65,7 +65,7 @@ function App() {
             {/* Title */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-2">
-                AETHER v22.8.3 REVERSAL_TRANSITION
+                AETHER v22.8.4 REVERSAL_TRANSITION
               </h1>
               <p className="text-gray-400 text-lg">Bot Paper Trading VPS-Production-Grade</p>
               <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
@@ -119,7 +119,7 @@ function App() {
                 : 'text-gray-400 hover:text-white hover:bg-gray-800'
             }`}
           >
-            📚 Regras v22.8.3
+            📚 Regras v22.8.4
           </button>
           <button
             onClick={() => setActiveTab('strategies')}

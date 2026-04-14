@@ -1,4 +1,4 @@
-// Types for AETHER v22.8.3 state (state_v22.json)
+// Types for AETHER v22.8.4 state (state_v22.json)
 
 export interface AetherState {
   equity: number;
