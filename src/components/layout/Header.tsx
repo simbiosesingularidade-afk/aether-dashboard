@@ -48,7 +48,7 @@ export function Header({ hedge, lastUpdate }: HeaderProps) {
                 <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                   AETHER
                 </h1>
-                <div className="text-xs text-gray-500">v22.8.6 REVERSAL_TRANSITION | VPS Production-Grade</div>
+                <div className="text-xs text-gray-500">v22.16.0 STABILIZATION_MODE | REVERSAL_TRANSITION</div>
               </div>
             </div>
 

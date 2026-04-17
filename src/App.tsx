@@ -27,7 +27,7 @@ function App() {
             </div>
           </div>
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.8.6 REVERSAL_TRANSITION</p>
+          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.16.0 STABILIZATION_MODE</p>
           <p className="text-gray-500 text-sm mt-2">Inicializando dashboard...</p>
         </div>
       </div>
@@ -65,7 +65,7 @@ function App() {
             {/* Title */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-2">
-                AETHER v22.8.6 REVERSAL_TRANSITION
+                AETHER v22.16.0 STABILIZATION_MODE
               </h1>
               <p className="text-gray-400 text-lg">Bot Paper Trading VPS-Production-Grade</p>
               <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
@@ -76,7 +76,7 @@ function App() {
                   USE_REAL_MARKET_DATA=true — Binance pública
                 </span>
                 <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-400 text-sm font-semibold">
-                  REVERSAL_TRANSITION + Pump Radar
+                  STABILIZATION_MODE | REVERSAL_TRANSITION
                 </span>
                 <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-yellow-400 text-sm font-semibold">
                   Market Regime Filter
@@ -119,7 +119,7 @@ function App() {
                 : 'text-gray-400 hover:text-white hover:bg-gray-800'
             }`}
           >
-            📚 Regras v22.8.6
+            📚 Regras v22.16.0
           </button>
           <button
             onClick={() => setActiveTab('strategies')}
@@ -172,7 +172,7 @@ function App() {
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Early Vol Mult</div>
-                  <div className="text-xl font-bold text-cyan-400">2.5×</div>
+                  <div className="text-xl font-bold text-cyan-400">3.0×</div>
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Spread Máx</div>
@@ -183,7 +183,7 @@ function App() {
                 <p className="text-sm text-gray-400">
                   <span className="font-bold text-orange-400">PUMP RADAR v22:</span> Scan fora do universo principal.
                   Detecção de +5% com volume — <strong className="text-yellow-400">sem entrada automática</strong>.
-                  Early pump: vol≥2.5× + mom3 +2% a +8% + RSI≤65.
+                  Early pump: vol≥3.0× + mom3 +2% a +10% + RSI≤60.
                   Cooldown 60min/token. Alertas enviados ao Telegram.
                 </p>
               </div>
@@ -268,7 +268,7 @@ function App() {
                           <div className="flex items-center gap-2">
                             <span className="text-cyan-400">●</span>
                             <span className="text-gray-400">Breakeven:</span>
-                            <span className="ml-2 font-mono font-bold text-white">+0.5% → SL+0.15%</span>
+                            <span className="ml-2 font-mono font-bold text-white">+1.0% → SL+0.25%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-yellow-400">●</span>
@@ -277,28 +277,28 @@ function App() {
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-emerald-400">●</span>
-                            <span className="text-gray-400">L1 (+1%):</span>
-                            <span className="ml-2 font-mono font-bold text-emerald-400">trail 0.8%</span>
+                            <span className="text-gray-400">L1 (+1.5%):</span>
+                            <span className="ml-2 font-mono font-bold text-emerald-400">trail 1.0%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-purple-400">●</span>
-                            <span className="text-gray-400">L2 (+2.5%):</span>
-                            <span className="ml-2 font-mono font-bold text-purple-400">trail 0.5%</span>
+                            <span className="text-gray-400">L2 (+3.0%):</span>
+                            <span className="ml-2 font-mono font-bold text-purple-400">trail 0.7%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-pink-400">●</span>
-                            <span className="text-gray-400">L3 (+5%):</span>
-                            <span className="ml-2 font-mono font-bold text-pink-400">trail 0.3%</span>
+                            <span className="text-gray-400">L3 (+6.0%):</span>
+                            <span className="ml-2 font-mono font-bold text-pink-400">trail 0.4%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-orange-400">●</span>
                             <span className="text-gray-400">TATICO mult:</span>
-                            <span className="ml-2 font-mono font-bold text-orange-400">× 0.7 (mais apertado)</span>
+                            <span className="ml-2 font-mono font-bold text-orange-400">× 0.85</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-red-400">●</span>
                             <span className="text-gray-400">SL ATR:</span>
-                            <span className="ml-2 font-mono font-bold text-red-400">1.2× ATR (2–3.5%)</span>
+                            <span className="ml-2 font-mono font-bold text-red-400">1.8× ATR (3.0–5.0%)</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-blue-400">●</span>
@@ -308,7 +308,7 @@ function App() {
                           <div className="flex items-center gap-2">
                             <span className="text-gray-400">●</span>
                             <span className="text-gray-400">Soft exit:</span>
-                            <span className="ml-2 font-mono font-bold text-gray-300">12h→24h (0.25%/15min)</span>
+                            <span className="ml-2 font-mono font-bold text-gray-300">6h→12h (0.40%/10min)</span>
                           </div>
                         </div>
                         <div className="mt-3 text-xs text-gray-500 italic">
@@ -450,7 +450,7 @@ function StrategyCards() {
     { name: '📈 OPORTUNIDADE', icon: '📈', desc: 'LINK AAVE UNI XRP SOL TAO NEAR ARB RENDER • score≥55 • hold 24h • size max $18', color: 'from-cyan-500/20 to-indigo-500/10', border: 'border-cyan-500/30' },
     { name: '🔒 PRIVACY', icon: '🔒', desc: 'ZEC XMR • score≥70 • hold 12h • size max $8 • bloqueado em RISK_OFF', color: 'from-purple-500/20 to-purple-500/10', border: 'border-purple-500/30' },
     { name: '⚡ TATICO', icon: '⚡', desc: 'FET INJ NMR CFG DUSK • score≥48 • hold 8h • size max $12 • FET exceção sanfona', color: 'from-emerald-500/20 to-emerald-500/10', border: 'border-emerald-500/30' },
-    { name: '🚀 Pump Radar', icon: '🚀', desc: 'Observacional • +5% com volume • Early vol≥2.5× • Apenas alertas Telegram', color: 'from-orange-500/20 to-red-500/10', border: 'border-orange-500/30' },
+    { name: '🚀 Pump Radar', icon: '🚀', desc: 'Observacional • +5% com volume • Early vol≥3.0× RSI≤60 | Entradas ativas', color: 'from-orange-500/20 to-red-500/10', border: 'border-orange-500/30' },
   ];
 
   return (
@@ -515,19 +515,19 @@ function RulesSection() {
     {
       category: "🔒 TRAILING STOP v22 — 3 Níveis",
       rules: [
-        { title: "Breakeven", desc: "SL sobe para entrada + 0.15% em +0.5%", example: "Entrou $100, em $100.50 SL fica $100.15" },
+        { title: "Breakeven", desc: "SL sobe para entrada + 0.25% em +1.0%", example: "Entrou $100, em $101.00 SL fica $100.25" },
         { title: "Partial TP", desc: "Vende 50% em +1.0% (TATICO) / +1.2% (OPORT) / +1.5% (CORE)", example: "CORE em +1.5% → fecha 50% da posição" },
-        { title: "L1 — +1%", desc: "Trail distance 0.8% abaixo do high (TATICO: ×0.7 = 0.56%)", example: "High $102 → SL $101.18" },
-        { title: "L2 — +2.5%", desc: "Trail distance 0.5% abaixo do high", example: "High $105 → SL $104.47" },
-        { title: "L3 — +5%", desc: "Trail distance 0.3% abaixo do high (apertado)", example: "High $110 → SL $109.67" },
-        { title: "Soft Time Stop", desc: "Reduz 0.25%/15min a partir de 12h até fechar 100% em 24h", example: "Posição 18h → 25% vendido gradualmente" },
+        { title: "L1 — +1.5%", desc: "Trail distance 1.0% abaixo do high (TATICO: ×0.85 = 0.85%)", example: "High $102 → SL $100.98" },
+        { title: "L2 — +3.0%", desc: "Trail distance 0.7% abaixo do high", example: "High $105 → SL $104.27" },
+        { title: "L3 — +6.0%", desc: "Trail distance 0.4% abaixo do high (apertado)", example: "High $110 → SL $109.56" },
+        { title: "Soft Time Stop", desc: "Reduz 0.40%/10min a partir de 6h até fechar 100% em 12h", example: "Posição 9h → 25% vendido gradualmente" },
       ]
     },
     {
       category: "🛡️ PROTEÇÕES v22",
       rules: [
         { title: "Hold time adaptativo", desc: "CORE 48h | OPORT 24h | PRIVACY 12h | TATICO 8h (hard stop)", example: "TATICO 9h → fecha automaticamente" },
-        { title: "Cooldown pós-loss", desc: "2h cooldown no token após perda", example: "Perdeu em SOL → sem entrada em SOL por 2h" },
+        { title: "Cooldown pós-loss", desc: "4h cooldown no token após perda", example: "Perdeu em SOL → sem entrada em SOL por 4h" },
         { title: "Blacklist TATICO", desc: "TATICO vai para blacklist por 4h após 1 loss", example: "FET perde → blacklist 4h" },
         { title: "Sector lock", desc: "2 losses/setor/dia bloqueia o setor", example: "2 losses em DeFi → bloqueia AAVE, UNI, LINK" },
         { title: "Max posições abertas", desc: "3 posições simultâneas máximo", example: "Já tem 3 abertas → sem novas entradas" },
@@ -726,7 +726,7 @@ function StrategiesSection() {
               </div>
               <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4">
                 <div className="font-bold text-yellow-400 mb-1">Early pump (universo)</div>
-                <p className="text-sm text-gray-400">vol≥2.5× + mom3 +2% a +8% + RSI≤65</p>
+                <p className="text-sm text-gray-400">vol≥3.0× + mom3 +2% a +10% + RSI≤60</p>
                 <p className="text-xs text-gray-500 mt-1">ema8_dist ≤ 3% • cooldown 60min/token</p>
               </div>
             </div>
