@@ -27,7 +27,7 @@ function App() {
             </div>
           </div>
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.16.0 STABILIZATION_MODE</p>
+          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.24 REAL SYNC</p>
           <p className="text-gray-500 text-sm mt-2">Inicializando dashboard...</p>
         </div>
       </div>
@@ -65,18 +65,18 @@ function App() {
             {/* Title */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-2">
-                AETHER v22.16.0 STABILIZATION_MODE
+                AETHER v22.24 REAL SYNC
               </h1>
               <p className="text-gray-400 text-lg">Bot Paper Trading VPS-Production-Grade</p>
               <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
                 <span className="px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold">
-                  19 Tokens | CORE(3) OPORT(9) PRIVACY(2) TATICO(5)
+                  19 Tokens | CORE(3) OPORT(9) PRIVACY(2) TATICO(5) | Score Gradativo
                 </span>
                 <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-400 text-sm font-semibold">
                   USE_REAL_MARKET_DATA=true — Binance pública
                 </span>
                 <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-400 text-sm font-semibold">
-                  STABILIZATION_MODE | REVERSAL_TRANSITION
+                  REAL SYNC | REVERSAL_TRANSITION | Pump RSI&lt;60
                 </span>
                 <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-yellow-400 text-sm font-semibold">
                   Market Regime Filter
@@ -119,7 +119,7 @@ function App() {
                 : 'text-gray-400 hover:text-white hover:bg-gray-800'
             }`}
           >
-            📚 Regras v22.16.0
+            📚 Regras v22.24
           </button>
           <button
             onClick={() => setActiveTab('strategies')}
@@ -150,9 +150,9 @@ function App() {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white flex items-center gap-3">
                   <span className="text-3xl animate-pulse">🚀</span>
-                  Pump Radar v22 — Observacional
-                  <span className="ml-3 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-sm font-bold border border-orange-500/30">
-                    Apenas Alertas
+                  Pump Radar v22.24 — Entrada Real
+                  <span className="ml-3 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold border border-emerald-500/30">
+                    Entrada Ativa
                   </span>
                 </h2>
                 <div className="text-sm text-gray-400 flex items-center gap-2">
@@ -164,15 +164,15 @@ function App() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm mb-4">
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Price Accel Mín</div>
-                  <div className="text-xl font-bold text-orange-400">+5%</div>
+                  <div className="text-xl font-bold text-orange-400">+1.3%</div>
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Stretch Máx</div>
-                  <div className="text-xl font-bold text-yellow-400">12%</div>
+                  <div className="text-xl font-bold text-yellow-400">8%</div>
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Early Vol Mult</div>
-                  <div className="text-xl font-bold text-cyan-400">3.0×</div>
+                  <div className="text-xl font-bold text-cyan-400">2.1×</div>
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Spread Máx</div>
@@ -181,10 +181,9 @@ function App() {
               </div>
               <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 text-center">
                 <p className="text-sm text-gray-400">
-                  <span className="font-bold text-orange-400">PUMP RADAR v22:</span> Scan fora do universo principal.
-                  Detecção de +5% com volume — <strong className="text-yellow-400">sem entrada automática</strong>.
-                  Early pump: vol≥3.0× + mom3 +2% a +10% + RSI≤60.
-                  Cooldown 60min/token. Alertas enviados ao Telegram.
+                  <span className="font-bold text-emerald-400">PUMP RADAR v22.24:</span> Entrada real ativa no universo.
+                  Early pump: vol≥2.5× + mom3 +2.0% a +8% + <strong className="text-yellow-400">RSI&lt;60 (anti-topo)</strong>.
+                  Size ≥$6 | Cooldown 60min/token. Alertas + entradas via Telegram.
                 </p>
               </div>
             </section>
@@ -449,8 +448,8 @@ function StrategyCards() {
     { name: '💎 CORE', icon: '💎', desc: 'BTC ETH BNB • score≥40 • drop -2% a -10% • hold 48h • size max $25', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30' },
     { name: '📈 OPORTUNIDADE', icon: '📈', desc: 'LINK AAVE UNI XRP SOL TAO NEAR ARB RENDER • score≥55 • hold 24h • size max $18', color: 'from-cyan-500/20 to-indigo-500/10', border: 'border-cyan-500/30' },
     { name: '🔒 PRIVACY', icon: '🔒', desc: 'ZEC XMR • score≥70 • hold 12h • size max $8 • bloqueado em RISK_OFF', color: 'from-purple-500/20 to-purple-500/10', border: 'border-purple-500/30' },
-    { name: '⚡ TATICO', icon: '⚡', desc: 'FET INJ NMR CFG DUSK • score≥48 • hold 8h • size max $12 • FET exceção sanfona', color: 'from-emerald-500/20 to-emerald-500/10', border: 'border-emerald-500/30' },
-    { name: '🚀 Pump Radar', icon: '🚀', desc: 'Observacional • +5% com volume • Early vol≥3.0× RSI≤60 | Entradas ativas', color: 'from-orange-500/20 to-red-500/10', border: 'border-orange-500/30' },
+    { name: '⚡ TATICO', icon: '⚡', desc: 'FET INJ NMR CFG DUSK • score≥48 • hold 8h • size max $12 • RISK_OFF size 0.80×', color: 'from-emerald-500/20 to-emerald-500/10', border: 'border-emerald-500/30' },
+    { name: '🚀 Pump Radar', icon: '🚀', desc: 'Entrada real • vol≥2.5× • mom3 +2.0%–8% • RSI<60 anti-topo • size ≥$6', color: 'from-orange-500/20 to-red-500/10', border: 'border-orange-500/30' },
   ];
 
   return (
@@ -713,7 +712,7 @@ function StrategiesSection() {
       <div className="bg-gradient-to-br from-orange-900/20 via-yellow-900/10 to-red-900/20 border border-orange-500/30 rounded-2xl p-6 backdrop-blur-sm">
         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
           <span className="text-3xl">🚀</span>
-          Pump Radar v22 — Observacional + Novas Listagens
+          Pump Radar v22.24 — Entrada Real
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -726,7 +725,7 @@ function StrategiesSection() {
               </div>
               <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4">
                 <div className="font-bold text-yellow-400 mb-1">Early pump (universo)</div>
-                <p className="text-sm text-gray-400">vol≥3.0× + mom3 +2% a +10% + RSI≤60</p>
+                <p className="text-sm text-gray-400">vol≥2.5× + mom3 +2.0% a +8% + RSI&lt;60</p>
                 <p className="text-xs text-gray-500 mt-1">ema8_dist ≤ 3% • cooldown 60min/token</p>
               </div>
             </div>

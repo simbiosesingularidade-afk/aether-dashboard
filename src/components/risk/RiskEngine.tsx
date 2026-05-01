@@ -1,6 +1,6 @@
 export function RiskEngine() {
   const riskParams = [
-    { label: 'Position Size Máx', value: '8% equity (v22.16)', highlight: true },
+    { label: 'Position Size Máx', value: '8% equity (v22.24)', highlight: true },
     { label: 'Risk / Trade', value: '$1.00 (ATR-based)' },
     { label: 'CORE / OPORT / PRIVACY / TATICO', value: '$25 / $18 / $8 / $12' },
     { label: 'Stop Loss ATR', value: '1.8× ATR (3.0–5.0%)', color: 'text-loss' },

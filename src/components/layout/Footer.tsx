@@ -10,8 +10,8 @@ export function Footer() {
               <AtomLogo size={32} />
             </div>
             <div>
-              <div className="text-sm font-semibold">AETHER v22.16.0 STABILIZATION_MODE</div>
-              <div className="text-xs text-muted">Paper Trading VPS 24/7</div>
+              <div className="text-sm font-semibold">AETHER v22.24 REAL SYNC</div>
+              <div className="text-xs text-muted">LIVE Trading VPS 24/7</div>
             </div>
           </div>
 
@@ -20,7 +20,7 @@ export function Footer() {
               <span className="w-2 h-2 rounded-full bg-profit animate-pulse" />
               <span>System Online</span>
             </div>
-            <span>v22.16.0 | 28 tokens | CORE/OPORT/TATICO | STABILIZATION_MODE | KS 3 losses</span>
+            <span>v22.24 | 19 tokens | CORE/OPORT/PRIVACY/TATICO | Score gradativo | Pump RSI&lt;60</span>
           </div>
         </div>
       </div>
