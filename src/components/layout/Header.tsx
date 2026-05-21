@@ -48,7 +48,7 @@ export function Header({ hedge, lastUpdate }: HeaderProps) {
                 <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                   AETHER
                 </h1>
-                <div className="text-xs text-gray-500">v22.25 CIRCUIT BREAKER | REVERSAL_TRANSITION</div>
+                <div className="text-xs text-gray-500">v22.34 10/10 | ANTI_TOPO | LOSS_TRAIL</div>
               </div>
             </div>
 

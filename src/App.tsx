@@ -19,7 +19,6 @@ function App() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black flex items-center justify-center">
         <div className="text-center">
-          {/* Logo Animation */}
           <div className="relative w-32 h-32 mx-auto mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
             <div className="relative w-full h-full bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 rounded-3xl flex items-center justify-center border border-cyan-500/30 backdrop-blur-sm">
@@ -27,7 +26,7 @@ function App() {
             </div>
           </div>
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.25 CIRCUIT BREAKER</p>
+          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.34 10/10</p>
           <p className="text-gray-500 text-sm mt-2">Inicializando dashboard...</p>
         </div>
       </div>
@@ -54,7 +53,6 @@ function App() {
         {/* Hero Section */}
         <div className="mb-8 bg-gradient-to-r from-cyan-500/10 via-emerald-500/10 to-cyan-500/10 border border-cyan-500/20 rounded-2xl p-8 backdrop-blur-sm">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            {/* Logo */}
             <div className="relative w-24 h-24 flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-2xl blur-xl opacity-30"></div>
               <div className="relative w-full h-full bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center border border-cyan-500/30 backdrop-blur-sm">
@@ -62,29 +60,27 @@ function App() {
               </div>
             </div>
 
-            {/* Title */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-2">
-                AETHER v22.25 CIRCUIT BREAKER
+                AETHER v22.34 10/10
               </h1>
-              <p className="text-gray-400 text-lg">Bot Paper Trading VPS-Production-Grade</p>
+              <p className="text-gray-400 text-lg">Bot Trading LIVE VPS-Production-Grade — Binance Spot</p>
               <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
                 <span className="px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold">
-                  19 Tokens | CORE(3) OPORT(9) PRIVACY(2) TATICO(5) | Score Gradativo
+                  30 Tokens | CORE(3) OPORT(12) PRIVACY(2) TATICO(13) | Score Gradativo
                 </span>
                 <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-400 text-sm font-semibold">
-                  USE_REAL_MARKET_DATA=true — Binance pública
+                  LIVE MODE — Binance Spot Real
                 </span>
                 <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-400 text-sm font-semibold">
-                  CIRCUIT BREAKER | REVERSAL_TRANSITION | Pump RSI&lt;60
+                  ANTI_TOPO | LOSS_TRAIL | MICRO_TRAIL | RSI&lt;67
                 </span>
                 <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-yellow-400 text-sm font-semibold">
-                  Market Regime Filter
+                  Market Regime Filter | KS 20% Drawdown
                 </span>
               </div>
             </div>
 
-            {/* Balance Card */}
             <div className="flex-shrink-0">
               <div className="bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-cyan-500/30 rounded-2xl p-6 backdrop-blur-sm min-w-[200px]">
                 <div className="text-gray-400 text-sm mb-1">Saldo Total</div>
@@ -119,7 +115,7 @@ function App() {
                 : 'text-gray-400 hover:text-white hover:bg-gray-800'
             }`}
           >
-            📚 Regras v22.25
+            📚 Regras v22.34
           </button>
           <button
             onClick={() => setActiveTab('strategies')}
@@ -135,7 +131,6 @@ function App() {
 
         {activeTab === 'overview' && (
           <>
-            {/* Error Banner */}
             {state._error && (
               <div className="mb-6 bg-red-500/10 border border-red-500/30 rounded-xl p-4 flex items-center gap-3">
                 <span className="text-2xl">⚠️</span>
@@ -150,67 +145,67 @@ function App() {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white flex items-center gap-3">
                   <span className="text-3xl animate-pulse">🚀</span>
-                  Pump Radar v22.25 — Entrada Real
+                  Pump Radar v22.34 — Entrada Real
                   <span className="ml-3 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold border border-emerald-500/30">
                     Entrada Ativa
                   </span>
                 </h2>
                 <div className="text-sm text-gray-400 flex items-center gap-2">
-                  <span>Detecção +5% com volume</span>
+                  <span>Anti-topo ativo</span>
                   <span>•</span>
-                  <span>Alerta via Telegram</span>
+                  <span>Alertas Telegram</span>
                 </div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm mb-4">
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Price Accel Mín</div>
-                  <div className="text-xl font-bold text-orange-400">+1.3%</div>
-                </div>
-                <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Stretch Máx</div>
-                  <div className="text-xl font-bold text-yellow-400">8%</div>
-                </div>
-                <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Early Vol Mult</div>
-                  <div className="text-xl font-bold text-cyan-400">2.1×</div>
+                  <div className="text-xl font-bold text-cyan-400">2.15×</div>
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
-                  <div className="text-gray-400 mb-1">Spread Máx</div>
-                  <div className="text-xl font-bold text-purple-400">0.5%</div>
+                  <div className="text-gray-400 mb-1">RSI Máx</div>
+                  <div className="text-xl font-bold text-orange-400">67</div>
+                </div>
+                <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
+                  <div className="text-gray-400 mb-1">Anti-topo</div>
+                  <div className="text-xl font-bold text-yellow-400">≤1.5% high</div>
+                </div>
+                <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
+                  <div className="text-gray-400 mb-1">Cooldown</div>
+                  <div className="text-xl font-bold text-purple-400">90min</div>
                 </div>
               </div>
               <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 text-center">
                 <p className="text-sm text-gray-400">
-                  <span className="font-bold text-emerald-400">PUMP RADAR v22.25:</span> Entrada real ativa no universo.
-                  Early pump: vol≥2.5× + mom3 +2.0% a +8% + <strong className="text-yellow-400">RSI&lt;60 (anti-topo)</strong>.
-                  Size ≥$6 | Cooldown 60min/token. Alertas + entradas via Telegram.
+                  <span className="font-bold text-emerald-400">PUMP RADAR v22.34:</span> vol≥2.15× + mom3 +1.65% a +8% + RSI&lt;67.
+                  <strong className="text-yellow-400"> Anti-topo: bloqueia se preço ≤1.5% da high_24h.</strong>
+                  Size ≥$4 (SIZE_FLOOR) | SL dollar-based ($0.70). MOMENTUM_BREAKOUT: mom3≥0.65% | score≥42.
                 </p>
               </div>
             </section>
 
-            {/* Novas Listagens + VPS Hardening */}
+            {/* Proteções v22.34 + VPS */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <section className="bg-gradient-to-br from-emerald-900/20 to-cyan-900/20 border border-emerald-500/30 rounded-2xl p-6 backdrop-blur-sm">
                 <h2 className="text-xl font-bold text-white flex items-center gap-3 mb-4">
-                  <span className="text-3xl">🆕</span>
-                  Novas Listagens
+                  <span className="text-3xl">🛡️</span>
+                  Proteções v22.34
                 </h2>
                 <div className="space-y-3 text-sm">
                   <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
-                    <span className="text-gray-400">Volume mínimo 24h</span>
-                    <span className="font-bold text-emerald-400">$5M</span>
+                    <span className="text-gray-400">Anti-topo (REVERSAL + MOM)</span>
+                    <span className="font-bold text-yellow-400">≤1.5% da high_24h → skip</span>
                   </div>
                   <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
-                    <span className="text-gray-400">Janela de monitoramento</span>
-                    <span className="font-bold text-cyan-400">7 dias</span>
+                    <span className="text-gray-400">Micro-trail zona morta</span>
+                    <span className="font-bold text-cyan-400">+0.3% → SL = entry+0.15%</span>
                   </div>
                   <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
-                    <span className="text-gray-400">Verificação</span>
-                    <span className="font-bold text-yellow-400">a cada 1h</span>
+                    <span className="text-gray-400">Loss trail progressivo</span>
+                    <span className="font-bold text-orange-400">pnl ≤ -1.25% → gap-close 15%/nível</span>
                   </div>
                   <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
-                    <span className="text-gray-400">Modo</span>
-                    <span className="font-bold text-purple-400">Observacional + alerta TG</span>
+                    <span className="text-gray-400">KS drawdown máximo</span>
+                    <span className="font-bold text-red-400">20% do equity peak</span>
                   </div>
                 </div>
               </section>
@@ -230,12 +225,12 @@ function App() {
                     <span className="font-bold text-cyan-400">Escrita atômica (.tmp → rename)</span>
                   </div>
                   <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
-                    <span className="text-gray-400">Graceful shutdown</span>
-                    <span className="font-bold text-emerald-400">SIGTERM / SIGINT</span>
+                    <span className="text-gray-400">Orphan recovery</span>
+                    <span className="font-bold text-emerald-400">UNIVERSE ≥$3 → rastrear (não vender)</span>
                   </div>
                   <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
-                    <span className="text-gray-400">Market data</span>
-                    <span className="font-bold text-yellow-400">USE_REAL_MARKET_DATA=true</span>
+                    <span className="text-gray-400">NaN protection</span>
+                    <span className="font-bold text-yellow-400">entry=0/NaN → posição ignorada</span>
                   </div>
                 </div>
               </section>
@@ -243,7 +238,6 @@ function App() {
 
             {/* Main Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-              {/* Positions */}
               <div className="lg:col-span-2">
                 <section className="bg-gray-900/30 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm">
                   <div className="flex items-center justify-between mb-6">
@@ -257,17 +251,21 @@ function App() {
                   </div>
                   <PositionGrid positions={state.positions ?? {}} />
 
-                  {/* Trail Info Card */}
                   <div className="mt-6 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-emerald-500/10 border border-emerald-500/20 rounded-xl p-5">
                     <div className="flex items-start gap-4">
                       <span className="text-3xl">🔐</span>
                       <div className="flex-1">
-                        <h3 className="font-bold text-emerald-400 text-lg mb-4">Trailing Stop v22 — 3 Níveis Progressivos</h3>
+                        <h3 className="font-bold text-emerald-400 text-lg mb-4">Trailing Stop v22.34 — Micro + 3 Níveis Progressivos</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+                          <div className="flex items-center gap-2">
+                            <span className="text-blue-400">●</span>
+                            <span className="text-gray-400">Micro-trail:</span>
+                            <span className="ml-2 font-mono font-bold text-blue-400">+0.3% → SL entry+0.15%</span>
+                          </div>
                           <div className="flex items-center gap-2">
                             <span className="text-cyan-400">●</span>
                             <span className="text-gray-400">Breakeven:</span>
-                            <span className="ml-2 font-mono font-bold text-white">+1.0% → SL+0.25%</span>
+                            <span className="ml-2 font-mono font-bold text-white">+0.5% → SL+0.15%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-yellow-400">●</span>
@@ -276,33 +274,28 @@ function App() {
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-emerald-400">●</span>
-                            <span className="text-gray-400">L1 (+1.5%):</span>
-                            <span className="ml-2 font-mono font-bold text-emerald-400">trail 1.0%</span>
+                            <span className="text-gray-400">L1 (+0.6%):</span>
+                            <span className="ml-2 font-mono font-bold text-emerald-400">trail 0.5%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-purple-400">●</span>
-                            <span className="text-gray-400">L2 (+3.0%):</span>
-                            <span className="ml-2 font-mono font-bold text-purple-400">trail 0.7%</span>
+                            <span className="text-gray-400">L2 (+2.5%):</span>
+                            <span className="ml-2 font-mono font-bold text-purple-400">trail 0.5%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-pink-400">●</span>
-                            <span className="text-gray-400">L3 (+6.0%):</span>
-                            <span className="ml-2 font-mono font-bold text-pink-400">trail 0.4%</span>
+                            <span className="text-gray-400">L3 (+5.0%):</span>
+                            <span className="ml-2 font-mono font-bold text-pink-400">trail 0.3%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-orange-400">●</span>
                             <span className="text-gray-400">TATICO mult:</span>
-                            <span className="ml-2 font-mono font-bold text-orange-400">× 0.85</span>
+                            <span className="ml-2 font-mono font-bold text-orange-400">×0.70</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-red-400">●</span>
-                            <span className="text-gray-400">SL ATR:</span>
-                            <span className="ml-2 font-mono font-bold text-red-400">1.8× ATR (3.0–5.0%)</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-blue-400">●</span>
-                            <span className="text-gray-400">RR mínimo:</span>
-                            <span className="ml-2 font-mono font-bold text-blue-400">2× (TP = 2× SL)</span>
+                            <span className="text-gray-400">Loss trail:</span>
+                            <span className="ml-2 font-mono font-bold text-red-400">pnl≤-1.25% → gap-close 15%/nível</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-gray-400">●</span>
@@ -310,18 +303,13 @@ function App() {
                             <span className="ml-2 font-mono font-bold text-gray-300">6h→12h (0.40%/10min)</span>
                           </div>
                         </div>
-                        <div className="mt-3 text-xs text-gray-500 italic">
-                          * Trailing progressivo: distância aperta conforme PnL sobe — protege lucros sem fechar cedo
-                        </div>
                       </div>
                     </div>
                   </div>
                 </section>
               </div>
 
-              {/* Right Column */}
               <div className="space-y-6">
-                {/* Performance Mini Chart */}
                 <section className="bg-gray-900/30 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm">
                   <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
                     <span className="text-3xl">📈</span>
@@ -330,7 +318,6 @@ function App() {
                   <PerformanceChart trades={state.trades} />
                 </section>
 
-                {/* Quick Stats */}
                 <section className="bg-gray-900/30 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm">
                   <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
                     <span className="text-3xl">⚡</span>
@@ -363,7 +350,6 @@ function App() {
                   </div>
                 </section>
 
-                {/* Restrictions */}
                 <section className="bg-gray-900/30 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm">
                   <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
                     <span className="text-3xl">🔒</span>
@@ -403,7 +389,6 @@ function App() {
               </div>
             </div>
 
-            {/* Trades Table */}
             <section className="mb-8 bg-gray-900/30 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm">
               <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
                 <span className="text-3xl">📜</span>
@@ -446,11 +431,11 @@ function StatCard({ icon, label, value, color }: { icon: string; label: string; 
 function StrategyCards() {
   const strategies = [
     { name: '💎 CORE', icon: '💎', desc: 'BTC ETH BNB • score≥40 • drop -2% a -10% • hold 48h • size max $25', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30' },
-    { name: '📈 OPORTUNIDADE', icon: '📈', desc: 'LINK AAVE UNI XRP SOL TAO NEAR ARB RENDER • score≥55 • hold 24h • size max $18', color: 'from-cyan-500/20 to-indigo-500/10', border: 'border-cyan-500/30' },
+    { name: '📈 OPORTUNIDADE', icon: '📈', desc: 'LINK AAVE UNI XRP SOL TAO NEAR ARB RENDER TRX DASH SKY • score≥55 • hold 24h • size max $18', color: 'from-cyan-500/20 to-indigo-500/10', border: 'border-cyan-500/30' },
     { name: '🔒 PRIVACY', icon: '🔒', desc: 'ZEC XMR • score≥70 • hold 12h • size max $8 • bloqueado em RISK_OFF', color: 'from-purple-500/20 to-purple-500/10', border: 'border-purple-500/30' },
-    { name: '⚡ TATICO', icon: '⚡', desc: 'FET INJ NMR CFG DUSK • score≥48 • hold 8h • size max $12 • RISK_OFF size 0.80×', color: 'from-emerald-500/20 to-emerald-500/10', border: 'border-emerald-500/30' },
-    { name: '🚀 Pump Radar', icon: '🚀', desc: 'Entrada real • vol≥2.5× • mom3 +2.0%–8% • RSI<60 anti-topo • size ≥$6', color: 'from-orange-500/20 to-red-500/10', border: 'border-orange-500/30' },
-    { name: '🛑 Circuit Breaker', icon: '🛑', desc: 'Venda imediata se perda flutuante ≥ $0.50 → Blacklist automático • Proteção máxima de capital', color: 'from-red-500/20 to-red-900/10', border: 'border-red-500/50' },
+    { name: '⚡ TATICO', icon: '⚡', desc: 'FET INJ NMR CFG DUSK WLD CHZ ONT BONK SENT PHA XAUT PSG • score≥48 • hold 8h • size max $12', color: 'from-emerald-500/20 to-emerald-500/10', border: 'border-emerald-500/30' },
+    { name: '🚀 Pump Radar', icon: '🚀', desc: 'vol≥2.15× • mom3 +1.65%–8% • RSI<67 • Anti-topo ≤1.5% high_24h • size ≥$4', color: 'from-orange-500/20 to-red-500/10', border: 'border-orange-500/30' },
+    { name: '📊 Momentum Breakout', icon: '📊', desc: '2ª estratégia • mom3≥0.65% • score≥42 • SL 2.5% | TP 5.0% • BB squeeze + direcional', color: 'from-indigo-500/20 to-blue-900/10', border: 'border-indigo-500/30' },
   ];
 
   return (
@@ -473,7 +458,7 @@ function StrategyCards() {
 function RulesSection() {
   const rules = [
     {
-      category: "🔄 REVERSAL_TRANSITION — Setup Único v22",
+      category: "🔄 REVERSAL_TRANSITION — Setup Principal",
       rules: [
         { title: "Drop recente", desc: "CORE: -2% a -10% | OPORT: -2.5% a -12% | PRIVACY: -3% a -15% | TATICO: -1.8% a -8%", example: "BTC cai -5% nos últimos 48 candles → candidato" },
         { title: "Recovery confirmada", desc: "CORE: +0.5% a +5% | OPORT: +0.8% a +4% | PRIVACY: +1.2% a +5% | TATICO: +0.9% a +3%", example: "BTC sobe +1% do low recente → recovery válida" },
@@ -487,13 +472,14 @@ function RulesSection() {
       category: "📊 SCORE MÍNIMO POR CATEGORIA",
       rules: [
         { title: "CORE (BTC/ETH/BNB)", desc: "score ≥ 40 — qualquer regime", example: "Score 42 → CORE entra em qualquer condição" },
-        { title: "OPORTUNIDADE", desc: "score ≥ 55 (RISK_ON) | ≥ 58 (NEUTRAL) | ≥ 60 (RISK_OFF) + vol≥1.0× + mom&gt;-0.1", example: "Score 58 em NEUTRAL → entra com tamanho reduzido" },
+        { title: "OPORTUNIDADE (12 tokens)", desc: "score ≥ 55 (RISK_ON) | ≥ 58 (NEUTRAL) | ≥ 60 (RISK_OFF) + vol≥1.0× + mom&gt;-0.1", example: "Score 58 em NEUTRAL → entra com tamanho reduzido" },
         { title: "PRIVACY (ZEC/XMR)", desc: "score ≥ 70 — BLOQUEADO em RISK_OFF (risco regulatório)", example: "Score 72 em RISK_ON → entra com size máx $8" },
-        { title: "TATICO", desc: "score ≥ 48 (RISK_ON) | ≥ 53 (NEUTRAL) | FET ≥ 58 (RISK_OFF excepcionalmente)", example: "FET score 60 em RISK_OFF → exceção sanfona" },
+        { title: "TATICO (13 tokens)", desc: "score ≥ 48 (RISK_ON) | ≥ 53 (NEUTRAL) | FET ≥ 58 (RISK_OFF excepcionalmente)", example: "FET score 60 em RISK_OFF → exceção permitida" },
+        { title: "MOMENTUM_BREAKOUT", desc: "mom3 ≥ 0.65% | score ≥ 42 | vol ≥ 1.5× | RSI 42–68 | BB squeeze", example: "FET mom3=0.8% score=45 → MOM_BREAKOUT ativo" },
       ]
     },
     {
-      category: "🌡️ REGIME FILTER v22",
+      category: "🌡️ REGIME FILTER v22.34",
       rules: [
         { title: "RISK_ON 🟢 — Size 100%", desc: "BTC forte + alts outperformando • Todas categorias ativas", example: "CORE 100% | OPORT 100% | TATICO 100% | PRIVACY 70%" },
         { title: "NEUTRAL 🟡 — Size reduzido", desc: "Condições mistas", example: "CORE 90% | OPORT 75% | TATICO 60% | PRIVACY 50%" },
@@ -502,36 +488,47 @@ function RulesSection() {
       ]
     },
     {
-      category: "⚙️ RISK MANAGEMENT v22",
+      category: "🛡️ ANTI_TOPO v22.34 — Bloqueia entrada no topo",
       rules: [
-        { title: "Position size máximo", desc: "10% do equity por posição (report April/2026)", example: "Equity $100 → máximo $10 por posição" },
-        { title: "Risk per trade", desc: "$1.00 por trade • SL baseado em ATR", example: "ATR 2% → size = $1.00 / 0.02 = $50 (cap equity)" },
-        { title: "Daily loss max", desc: "$3.00 ou 5% do equity (o que atingir primeiro)", example: "Perdeu $3 → stop diário, sem novas entradas" },
-        { title: "Kill switch", desc: "4 loss streak | WR &lt; 30% (20 trades) | Expectancy &lt; -$0.50", example: "4 stops seguidos → kill switch ativa automaticamente" },
-        { title: "Volume 24h mínimo", desc: "CORE $50M | OPORT $20M | TATICO $15M | PRIVACY $10M", example: "Token com $5M vol24h → bloqueado" },
-        { title: "Spread máximo", desc: "0.3% spread | 0.5% slippage máximo", example: "Spread 0.4% → bloqueado" },
+        { title: "Fonte de dados", desc: "Live ticker high_24h (não OHLCV) — sempre atualizado", example: "Ticker Binance retorna high=$1.00, preço atual=$0.985 → 1.5% de distância" },
+        { title: "Threshold", desc: "Bloqueia se preço ≤ 1.5% da high_24h em TODOS os caminhos", example: "BTC a 0.8% da máxima de 24h → entrada bloqueada" },
+        { title: "Cobertura", desc: "REVERSAL_TRANSITION + MOMENTUM_BREAKOUT + Early Pump", example: "Nenhuma estratégia entra no topo — proteção total" },
+        { title: "Log de bloqueio", desc: "ANTI_TOPO / ANTI_TOPO_MOM no log com % de proximidade", example: "ANTI_TOPO_MOM: FET 0.92% da high_24h → bloqueado" },
       ]
     },
     {
-      category: "🔒 TRAILING STOP v22 — 3 Níveis",
+      category: "⚙️ RISK MANAGEMENT v22.34",
       rules: [
-        { title: "Breakeven", desc: "SL sobe para entrada + 0.25% em +1.0%", example: "Entrou $100, em $101.00 SL fica $100.25" },
+        { title: "Risk per trade", desc: "$0.70 máximo (dollar-based SL) • SL calculado como %", example: "Size $10 → SL = 7% | Size $20 → SL = 3.5%" },
+        { title: "Daily loss max", desc: "$3.00 ou 5% do equity (o que atingir primeiro)", example: "Perdeu $3 → stop diário, sem novas entradas" },
+        { title: "Kill switch streak", desc: "3 losses seguidos → KS ativa", example: "3 stops seguidos → kill switch — aguarda 30min ou /unkill" },
+        { title: "Kill switch drawdown", desc: "≥ 20% do equity peak → KS ativa (anti-loop protegido)", example: "Peak $120, equity $95 → drawdown 20.8% → KS ativa" },
+        { title: "KS Auto-Reset", desc: "30min + verificação: daily_loss / loss_streak / WR / drawdown", example: "Após 30min se drawdown recuperado → KS reset automático" },
+        { title: "Volume 24h mínimo", desc: "CORE $50M | OPORT $20M | TATICO $15M | PRIVACY $10M", example: "Token com $5M vol24h → bloqueado" },
+      ]
+    },
+    {
+      category: "🔒 TRAILING STOP v22.34 — Micro + 3 Níveis + Loss Trail",
+      rules: [
+        { title: "Micro-trail (novo v22.34)", desc: "pnl ≥ +0.3% → SL = entry + 0.15% (antes do breakeven)", example: "Entrou $100, em $100.30 SL fica $100.15" },
+        { title: "Breakeven", desc: "pnl ≥ +0.5% → SL = entry + 0.15%", example: "Entrou $100, em $100.50 SL fica $100.15" },
         { title: "Partial TP", desc: "Vende 50% em +1.0% (TATICO) / +1.2% (OPORT) / +1.5% (CORE)", example: "CORE em +1.5% → fecha 50% da posição" },
-        { title: "L1 — +1.5%", desc: "Trail distance 1.0% abaixo do high (TATICO: ×0.85 = 0.85%)", example: "High $102 → SL $100.98" },
-        { title: "L2 — +3.0%", desc: "Trail distance 0.7% abaixo do high", example: "High $105 → SL $104.27" },
-        { title: "L3 — +6.0%", desc: "Trail distance 0.4% abaixo do high (apertado)", example: "High $110 → SL $109.56" },
+        { title: "L1 — +0.6%", desc: "Trail distance 0.5% abaixo do high (TATICO: ×0.70 = 0.35%)", example: "High $100.60 → SL $100.10" },
+        { title: "L2 — +2.5%", desc: "Trail distance 0.5% abaixo do high", example: "High $102.50 → SL $102.00" },
+        { title: "L3 — +5.0%", desc: "Trail distance 0.3% abaixo do high (apertado)", example: "High $105 → SL $104.69" },
+        { title: "Loss trail progressivo (v22.34)", desc: "pnl ≤ -1.25% → fecha 15%×nível do gap(SL→preço), intervalo 30min", example: "Nível 1: fecha 15% do gap | Nível 3: fecha 45% do gap" },
         { title: "Soft Time Stop", desc: "Reduz 0.40%/10min a partir de 6h até fechar 100% em 12h", example: "Posição 9h → 25% vendido gradualmente" },
       ]
     },
     {
-      category: "🛡️ PROTEÇÕES v22",
+      category: "🛡️ PROTEÇÕES v22.34",
       rules: [
         { title: "Hold time adaptativo", desc: "CORE 48h | OPORT 24h | PRIVACY 12h | TATICO 8h (hard stop)", example: "TATICO 9h → fecha automaticamente" },
         { title: "Cooldown pós-loss", desc: "4h cooldown no token após perda", example: "Perdeu em SOL → sem entrada em SOL por 4h" },
         { title: "Blacklist TATICO", desc: "TATICO vai para blacklist por 4h após 1 loss", example: "FET perde → blacklist 4h" },
         { title: "Sector lock", desc: "2 losses/setor/dia bloqueia o setor", example: "2 losses em DeFi → bloqueia AAVE, UNI, LINK" },
         { title: "Max posições abertas", desc: "3 posições simultâneas máximo", example: "Já tem 3 abertas → sem novas entradas" },
-        { title: "Max trades/dia", desc: "15 trades por dia (global)", example: "Após 15 trades, bot para de abrir" },
+        { title: "Orphan recovery", desc: "UNIVERSE órfão ≥$3 → recuperado como posição rastreada (não vendido)", example: "PSG $4.20 na Binance sem state → rastreado com SL 3.5%" },
       ]
     },
   ];
@@ -579,7 +576,7 @@ function StrategiesSection() {
     {
       tier: "OPORTUNIDADE",
       icon: "📈",
-      tokens: ["LINK", "AAVE", "UNI", "XRP", "SOL", "TAO", "NEAR", "ARB", "RENDER"],
+      tokens: ["LINK", "AAVE", "UNI", "XRP", "SOL", "TAO", "NEAR", "ARB", "RENDER", "TRX", "DASH", "SKY"],
       scoreMin: 55,
       holdH: 24,
       sizeMax: "$18",
@@ -605,7 +602,7 @@ function StrategiesSection() {
     {
       tier: "TATICO",
       icon: "⚡",
-      tokens: ["FET", "INJ", "NMR", "CFG", "DUSK"],
+      tokens: ["FET", "INJ", "NMR", "CFG", "DUSK", "WLD", "CHZ", "ONT", "BONK", "SENT", "PHA", "XAUT", "PSG"],
       scoreMin: 48,
       holdH: 8,
       sizeMax: "$12",
@@ -628,7 +625,6 @@ function StrategiesSection() {
 
   return (
     <div className="space-y-8">
-      {/* Category Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {categories.map((cat, idx) => (
           <div key={idx} className={`bg-gradient-to-br ${cat.color} border ${cat.border} rounded-2xl p-6 backdrop-blur-sm`}>
@@ -683,8 +679,8 @@ function StrategiesSection() {
             <div className="text-xs text-gray-500 font-mono">(close - recent_low) / recent_low × 100</div>
           </div>
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-4">
-            <h4 className="text-lg font-bold text-purple-400 mb-2">③ EMA8 proximal</h4>
-            <p className="text-sm text-gray-400 mb-2">Preço perto da EMA8 — nem esticado, nem abaixo</p>
+            <h4 className="text-lg font-bold text-purple-400 mb-2">③ EMA8 proximal + ANTI_TOPO</h4>
+            <p className="text-sm text-gray-400 mb-2">Preço perto da EMA8 • Bloqueado se ≤1.5% da high_24h</p>
             <div className="text-xs text-gray-500 font-mono">-1.5% ≤ (close/ema8 - 1) × 100 ≤ +2.5%</div>
           </div>
           <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-xl p-4">
@@ -713,45 +709,45 @@ function StrategiesSection() {
       <div className="bg-gradient-to-br from-orange-900/20 via-yellow-900/10 to-red-900/20 border border-orange-500/30 rounded-2xl p-6 backdrop-blur-sm">
         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
           <span className="text-3xl">🚀</span>
-          Pump Radar v22.25 — Entrada Real
+          Pump Radar v22.34 — Entrada Real + Anti-topo
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="text-lg font-bold text-orange-400 mb-3">📡 Detecção de Pump</h4>
+            <h4 className="text-lg font-bold text-orange-400 mb-3">📡 Early Pump (universo)</h4>
             <div className="space-y-3">
               <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4">
-                <div className="font-bold text-cyan-400 mb-1">Pump clássico</div>
-                <p className="text-sm text-gray-400">Fora do universo • +5% mín • spread ≤ 0.5%</p>
-                <p className="text-xs text-gray-500 mt-1">Stretch máx 12% • vol ≥ $1M</p>
+                <div className="font-bold text-cyan-400 mb-1">Filtros de entrada</div>
+                <p className="text-sm text-gray-400">vol≥2.15× + mom3 +1.65% a +8% + RSI&lt;67</p>
+                <p className="text-xs text-gray-500 mt-1">ema8_dist ≤ 3% • cooldown 90min/token</p>
               </div>
-              <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4">
-                <div className="font-bold text-yellow-400 mb-1">Early pump (universo)</div>
-                <p className="text-sm text-gray-400">vol≥2.5× + mom3 +2.0% a +8% + RSI&lt;60</p>
-                <p className="text-xs text-gray-500 mt-1">ema8_dist ≤ 3% • cooldown 60min/token</p>
+              <div className="bg-gray-900/50 border border-yellow-500/20 rounded-lg p-4">
+                <div className="font-bold text-yellow-400 mb-1">Anti-topo (v22.34)</div>
+                <p className="text-sm text-gray-400">Bloqueia se preço ≤ 1.5% da high_24h</p>
+                <p className="text-xs text-gray-500 mt-1">Todos os caminhos: REVERSAL + MOM + PUMP</p>
               </div>
             </div>
           </div>
           <div>
-            <h4 className="text-lg font-bold text-emerald-400 mb-3">🆕 Novas Listagens</h4>
+            <h4 className="text-lg font-bold text-indigo-400 mb-3">📊 Momentum Breakout</h4>
             <div className="space-y-3 text-sm">
-              <div className="bg-gray-900/50 border border-emerald-500/20 rounded-lg p-4">
-                <div className="font-bold text-emerald-400 mb-1">Critérios de detecção</div>
-                <p className="text-gray-400">vol24h ≥ $5M + variação ≥ ±20%</p>
-                <p className="text-xs text-gray-500 mt-1">Fora do universo + fora da blocklist</p>
+              <div className="bg-gray-900/50 border border-indigo-500/20 rounded-lg p-4">
+                <div className="font-bold text-indigo-400 mb-1">Condições</div>
+                <p className="text-gray-400">mom3 ≥ 0.65% | score ≥ 42 | vol ≥ 1.5×</p>
+                <p className="text-xs text-gray-500 mt-1">RSI 42–68 | BB width ≥ 0.02</p>
               </div>
-              <div className="bg-gray-900/50 border border-emerald-500/20 rounded-lg p-4">
-                <div className="font-bold text-cyan-400 mb-1">Ação</div>
-                <p className="text-gray-400">Alerta Telegram — avaliar manualmente</p>
-                <p className="text-xs text-gray-500 mt-1">Verificação: a cada 1h (ciclo 360)</p>
+              <div className="bg-gray-900/50 border border-indigo-500/20 rounded-lg p-4">
+                <div className="font-bold text-cyan-400 mb-1">Parâmetros</div>
+                <p className="text-gray-400">SL 2.5% | TP 5.0% | Tier 2</p>
+                <p className="text-xs text-gray-500 mt-1">Anti-topo bloqueio integrado</p>
               </div>
             </div>
           </div>
         </div>
         <div className="mt-6 bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 text-center">
           <p className="text-sm text-gray-400">
-            <span className="font-bold text-orange-400">PUMP RADAR v22:</span> Modo puramente observacional.
-            <strong className="text-yellow-400"> Sem entrada automática.</strong>
-            Alertas enviados ao Telegram para avaliação manual.
+            <span className="font-bold text-orange-400">PUMP RADAR v22.34:</span> Entrada real ativa.
+            vol≥2.15× + mom3 +1.65%–8% + RSI&lt;67 + Anti-topo high_24h ≤1.5%.
+            <strong className="text-yellow-400"> Size ≥$4 (SIZE_FLOOR) | SL dollar-based $0.70 | Cooldown 90min.</strong>
           </p>
         </div>
       </div>
