@@ -312,7 +312,7 @@ function App() {
                           <div className="flex items-center gap-2">
                             <span className="text-gray-400">●</span>
                             <span className="text-gray-400">Soft exit:</span>
-                            <span className="ml-2 font-mono font-bold text-gray-300">6h→12h (0.40%/10min)</span>
+                            <span className="ml-2 font-mono font-bold text-gray-300">6h→12h (0.25%/10min)</span>
                           </div>
                         </div>
                       </div>
@@ -406,7 +406,7 @@ function App() {
                 <span className="text-3xl">📜</span>
                 Últimos Trades
                 <span className="ml-3 text-sm font-normal text-gray-500">
-                  (Últimos 30 de {state.trades?.length ?? 0})
+                  (Últimos {Math.min(30, state.trades?.length ?? 0)} de {state.trades?.length ?? 0})
                 </span>
               </h2>
               <TradesTable trades={state.trades} limit={30} />
@@ -529,7 +529,7 @@ function RulesSection() {
         { title: "L2 — +2.5%", desc: "Trail distance 0.5% abaixo do high", example: "High $102.50 → SL $102.00" },
         { title: "L3 — +5.0%", desc: "Trail distance 0.3% abaixo do high (apertado)", example: "High $105 → SL $104.69" },
         { title: "Loss trail progressivo (v22.36)", desc: "pnl ≤ -1.25% → fecha 15%×nível do gap(SL→preço), intervalo 30min", example: "Nível 1: fecha 15% do gap | Nível 3: fecha 45% do gap" },
-        { title: "Soft Time Stop", desc: "Reduz 0.40%/10min a partir de 6h até fechar 100% em 12h", example: "Posição 9h → 25% vendido gradualmente" },
+        { title: "Soft Time Stop", desc: "Reduz 0.25%/10min a partir de 6h até fechar 100% em 12h", example: "Posição 9h → 25% vendido gradualmente" },
       ]
     },
     {
