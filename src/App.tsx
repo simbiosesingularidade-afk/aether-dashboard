@@ -82,13 +82,25 @@ function App() {
             </div>
 
             <div className="flex-shrink-0">
-              <div className="bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-cyan-500/30 rounded-2xl p-6 backdrop-blur-sm min-w-[200px]">
-                <div className="text-gray-400 text-sm mb-1">Saldo Total</div>
-                <div className="text-4xl font-bold text-white mb-1">
+              <div className="bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-cyan-500/30 rounded-2xl p-6 backdrop-blur-sm min-w-[220px]">
+                <div className="text-gray-400 text-xs mb-1 uppercase tracking-wider">Saldo Total</div>
+                <div className="text-4xl font-bold text-white mb-3">
                   ${(state.equity ?? 0).toFixed(2)}
                 </div>
-                <div className={`text-sm font-semibold ${(state.daily_pnl_usd || 0) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                  {(state.daily_pnl_usd || 0) >= 0 ? '+' : ''}${(state.daily_pnl_usd || 0).toFixed(2)}
+                <div className="space-y-1.5 text-xs border-t border-cyan-500/20 pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-400">💵 USDT livre</span>
+                    <span className="font-mono text-emerald-400 font-semibold">${(state.balance_usdt ?? 0).toFixed(2)}</span>
+                  </div>
+                  {Object.values(state.positions ?? {}).map((pos) => (
+                    <div key={pos.symbol} className="flex justify-between items-center">
+                      <span className="text-gray-400">📦 {pos.coin}</span>
+                      <span className="font-mono text-cyan-400 font-semibold">${(pos.qty * pos.entry_price).toFixed(2)}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className={`text-sm font-semibold mt-2 pt-2 border-t border-cyan-500/20 ${(state.daily_pnl_usd || 0) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  P&L Dia: {(state.daily_pnl_usd || 0) >= 0 ? '+' : ''}${(state.daily_pnl_usd || 0).toFixed(2)}
                 </div>
               </div>
             </div>
@@ -171,7 +183,7 @@ function App() {
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Cooldown</div>
-                  <div className="text-xl font-bold text-purple-400">90min</div>
+                  <div className="text-xl font-bold text-purple-400">60min</div>
                 </div>
               </div>
               <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 text-center">

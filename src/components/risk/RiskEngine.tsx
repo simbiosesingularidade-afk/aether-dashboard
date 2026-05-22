@@ -22,7 +22,7 @@ export function RiskEngine() {
     { label: 'Pump RSI Máx Early / Entry', value: '67 / 65' },
     { label: 'Pump Pullback Filter', value: 'mom3 > 5% bloqueia entrada' },
     { label: 'Pump TP', value: '8%' },
-    { label: 'Soft Time Stop', value: '0.40%/10min (6h→12h)' },
+    { label: 'Soft Time Stop', value: '0.25%/10min (6h→12h)' },
     { label: 'Daily Loss Máx', value: '$3.00 ou 5% equity', color: 'text-loss' },
     { label: 'Kill Switch streak', value: '3 losses seguidos', color: 'text-loss' },
     { label: 'Kill Switch WR', value: '< 30% (últimos 20 trades)' },

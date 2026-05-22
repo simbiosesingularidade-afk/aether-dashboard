@@ -81,7 +81,7 @@ export function KPISection({ state }: KPISectionProps) {
         icon="⛔"
         label="Restrições"
         value={`${Object.keys(state.blacklist ?? {}).length}BL / ${Object.keys(state.cooldowns ?? {}).length}Cool`}
-        sub="1 loss → cooldown 2h"
+        sub="4h/token após loss"
         variant="gold"
       />
     </div>
