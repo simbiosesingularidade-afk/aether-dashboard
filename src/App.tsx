@@ -183,7 +183,7 @@ function App() {
                 </div>
                 <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800">
                   <div className="text-gray-400 mb-1">Cooldown</div>
-                  <div className="text-xl font-bold text-purple-400">60min</div>
+                  <div className="text-xl font-bold text-purple-400">90min</div>
                 </div>
               </div>
               <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 text-center">
@@ -282,7 +282,7 @@ function App() {
                           <div className="flex items-center gap-2">
                             <span className="text-yellow-400">●</span>
                             <span className="text-gray-400">Partial TP:</span>
-                            <span className="ml-2 font-mono font-bold text-yellow-400">50% @ +1.0–1.5%</span>
+                            <span className="ml-2 font-mono font-bold text-yellow-400">50% @ +0.6%–1.0%</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-emerald-400">●</span>
@@ -484,10 +484,10 @@ function RulesSection() {
       category: "📊 SCORE MÍNIMO POR CATEGORIA",
       rules: [
         { title: "CORE (BTC/ETH/BNB)", desc: "score ≥ 40 — qualquer regime", example: "Score 42 → CORE entra em qualquer condição" },
-        { title: "OPORTUNIDADE (12 tokens)", desc: "score ≥ 55 (RISK_ON) | ≥ 58 (NEUTRAL) | ≥ 60 (RISK_OFF) + vol≥1.0× + mom&gt;-0.1", example: "Score 58 em NEUTRAL → entra com tamanho reduzido" },
+        { title: "OPORTUNIDADE (12 tokens)", desc: "score ≥ 55 (RISK_ON) | ≥ 58 (NEUTRAL) | ≥ 55 (RISK_OFF) + vol≥1.0× + mom&gt;-0.1", example: "Score 58 em NEUTRAL → entra com tamanho reduzido" },
         { title: "PRIVACY (ZEC/XMR)", desc: "score ≥ 70 — BLOQUEADO em RISK_OFF (risco regulatório)", example: "Score 72 em RISK_ON → entra com size máx $8" },
         { title: "TATICO (13 tokens)", desc: "score ≥ 48 (RISK_ON) | ≥ 53 (NEUTRAL) | FET ≥ 58 (RISK_OFF excepcionalmente)", example: "FET score 60 em RISK_OFF → exceção permitida" },
-        { title: "MOMENTUM_BREAKOUT", desc: "mom3 ≥ 0.65% | score ≥ 42 | vol ≥ 1.5× | RSI 42–68 | BB squeeze", example: "FET mom3=0.8% score=45 → MOM_BREAKOUT ativo" },
+        { title: "MOMENTUM_BREAKOUT", desc: "mom3 ≥ 0.65% | score ≥ 42 | vol ≥ 1.5× | RSI 40–70 | BB squeeze", example: "FET mom3=0.8% score=45 → MOM_BREAKOUT ativo" },
       ]
     },
     {
@@ -495,8 +495,8 @@ function RulesSection() {
       rules: [
         { title: "RISK_ON 🟢 — Size 100%", desc: "BTC forte + alts outperformando • Todas categorias ativas", example: "CORE 100% | OPORT 100% | TATICO 100% | PRIVACY 70%" },
         { title: "NEUTRAL 🟡 — Size reduzido", desc: "Condições mistas", example: "CORE 90% | OPORT 75% | TATICO 60% | PRIVACY 50%" },
-        { title: "RISK_OFF 🔴 — Size mínimo", desc: "BTC fraco ou alts underperformando", example: "CORE 75% | OPORT 50% | TATICO 35% | PRIVACY BLOQUEADO" },
-        { title: "Score mínimo dinâmico", desc: "Em RISK_OFF score mínimo sobe: OPORT +5 | TATICO +15 (exceto FET +10)", example: "OPORT precisa de 60 pts em RISK_OFF (era 55)" },
+        { title: "RISK_OFF 🔴 — Size mínimo", desc: "BTC fraco ou alts underperformando", example: "CORE 75% | OPORT 65% | TATICO 80% | PRIVACY BLOQUEADO" },
+        { title: "Score mínimo dinâmico", desc: "NEUTRAL: OPORT +3 | TATICO +5 | RISK_OFF: TATICO +5 (FET/DUSK exceção) | CORE sem ajuste", example: "TATICO precisa de 53 pts em NEUTRAL (base 48+5)" },
       ]
     },
     {
@@ -524,7 +524,7 @@ function RulesSection() {
       rules: [
         { title: "Micro-trail (novo v22.36)", desc: "pnl ≥ +0.3% → SL = entry + 0.15% (antes do breakeven)", example: "Entrou $100, em $100.30 SL fica $100.15" },
         { title: "Breakeven", desc: "pnl ≥ +0.5% → SL = entry + 0.15%", example: "Entrou $100, em $100.50 SL fica $100.15" },
-        { title: "Partial TP", desc: "Vende 50% em +1.0% (TATICO) / +1.2% (OPORT) / +1.5% (CORE)", example: "CORE em +1.5% → fecha 50% da posição" },
+        { title: "Partial TP", desc: "Vende 50% em +0.6% (TATICO) / +0.8% (OPORT) / +1.0% (CORE)", example: "CORE em +1.0% → fecha 50% da posição" },
         { title: "L1 — +0.6%", desc: "Trail distance 0.5% abaixo do high (TATICO: ×0.70 = 0.35%)", example: "High $100.60 → SL $100.10" },
         { title: "L2 — +2.5%", desc: "Trail distance 0.5% abaixo do high", example: "High $102.50 → SL $102.00" },
         { title: "L3 — +5.0%", desc: "Trail distance 0.3% abaixo do high (apertado)", example: "High $105 → SL $104.69" },
@@ -745,7 +745,7 @@ function StrategiesSection() {
               <div className="bg-gray-900/50 border border-indigo-500/20 rounded-lg p-4">
                 <div className="font-bold text-indigo-400 mb-1">Condições</div>
                 <p className="text-gray-400">mom3 ≥ 0.65% | score ≥ 42 | vol ≥ 1.5×</p>
-                <p className="text-xs text-gray-500 mt-1">RSI 42–68 | BB width ≥ 0.02</p>
+                <p className="text-xs text-gray-500 mt-1">RSI 40–70 | BB width ≥ 0.02</p>
               </div>
               <div className="bg-gray-900/50 border border-indigo-500/20 rounded-lg p-4">
                 <div className="font-bold text-cyan-400 mb-1">Parâmetros</div>
