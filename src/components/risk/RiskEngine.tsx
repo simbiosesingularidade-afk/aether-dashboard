@@ -2,13 +2,13 @@ export function RiskEngine() {
   const riskParams = [
     { label: '🛑 Max Perda/Trade', value: '$0.70 (dollar-based SL)', highlight: true, color: 'text-red-400' },
     { label: '🔒 Hard Stop Safety Net', value: '$1.125 + blacklist 6h', highlight: true, color: 'text-red-400' },
-    { label: 'Position Size Máx', value: '8% equity (v22.36)', highlight: true },
+    { label: 'Position Size Máx', value: '8% equity (v22.48)', highlight: true },
     { label: 'Size Floor', value: '$4.00 (mínimo por trade)' },
     { label: 'CORE / OPORT / PRIVACY / TATICO', value: '$25 / $18 / $8 / $12' },
     { label: 'Stop Loss Base / Máx', value: '2.0% base | 3.5% máx', color: 'text-loss' },
     { label: 'SL ATR Mult', value: '1.2× ATR' },
     { label: '🔹 MICRO_TRAIL', value: '+0.3% → SL = entry+0.15%', color: 'text-accent-blue', highlight: true },
-    { label: 'Loss Trailing v22.36', value: 'pnl ≤ -1.25% → fecha 15%×nível do gap(SL→preço)', color: 'text-loss' },
+    { label: 'Loss Trailing v22.48', value: 'pnl ≤ -1.25% → fecha 15%×nível do gap(SL→preço)', color: 'text-loss' },
     { label: 'Loss Trail Intervalo / Máx', value: '30min | máx 75% do gap' },
     { label: 'Breakeven', value: '+0.5% → SL+0.15%' },
     { label: 'Partial TP', value: '50% @ +0.6%–1.0%' },
@@ -18,7 +18,7 @@ export function RiskEngine() {
     { label: 'MB Filtros', value: 'mom3≥0.65% | vol≥1.5× | RSI 40–70 | BB≥0.02', color: 'text-info' },
     { label: '🛡️ ANTI_TOPO', value: '≤1.5% do high_24h → bloqueia entrada', color: 'text-yellow-400', highlight: true },
     { label: 'Anti-Topo Cobertura', value: 'REVERSAL + MOM_BREAKOUT + Pump Early' },
-    { label: 'Pump Entry Size / SL / Vol', value: '$5 | 4% | 2.15× (v22.36)', color: 'text-info' },
+    { label: 'Pump Entry Size / SL / Vol', value: '$5 | 6% | 3.0× (v22.48)', color: 'text-info' },
     { label: 'Pump RSI Máx Early / Entry', value: '67 / 65' },
     { label: 'Pump Pullback Filter', value: 'mom3 > 5% bloqueia entrada' },
     { label: 'Pump TP', value: '8%' },
@@ -44,7 +44,7 @@ export function RiskEngine() {
       <div className="bg-gradient-to-r from-accent-blue/20 to-accent-indigo/20 px-4 py-3 border-b border-border">
         <div className="text-sm font-bold text-white flex items-center gap-2">
           <span>⚙️</span>
-          Risk Engine v22.36
+          Risk Engine v22.48
         </div>
       </div>
 
