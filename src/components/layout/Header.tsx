@@ -48,7 +48,7 @@ export function Header({ hedge, lastUpdate }: HeaderProps) {
                 <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                   AETHER
                 </h1>
-                <div className="text-xs text-gray-500">v22.55 | 3 SLEEVES | TREND_FOLLOW | RISK_INTEGRITY</div>
+                <div className="text-xs text-gray-500">v22.56 | 3 SLEEVES | TREND_FOLLOW | RISK_INTEGRITY</div>
               </div>
             </div>
 
