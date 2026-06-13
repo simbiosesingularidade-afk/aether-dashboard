@@ -15,10 +15,10 @@ export function RiskEngine() {
     { label: '🛡️ ANTI_TOPO', value: '≤2.0% da máxima → bloqueia · FAIL-CLOSED (v22.58: sem dados = bloqueia)', color: 'text-yellow-400', highlight: true },
     { label: '🔊 Piso de Volume', value: 'v22.58: 0.4→0.15 — dip de capitulação tem vol baixo (não rejeita o fundo)', color: 'text-accent-blue' },
     { label: 'Anti-ltrap', value: '|24h| > 25% → bloqueia entrada' },
-    // ═══ SAÍDA (let winners run — v22.57) ═══
+    // ═══ SAÍDA (let winners run — v22.58) ═══
     { label: '🏃 Take Profit', value: 'RR 2:1 (SL × 2 ≈ +4–6%) — deixa correr', highlight: true, color: 'text-emerald-400' },
-    { label: 'Partial TP', value: '50% @ +2.0% (v22.57: já não raspa cedo)' },
-    { label: 'Breakeven', value: '+2.5% → SL entry+0.3% (v22.57)' },
+    { label: 'Partial TP', value: '50% @ +2.0% (v22.58: já não raspa cedo)' },
+    { label: 'Breakeven', value: '+2.5% → SL entry+0.3% (v22.58)' },
     { label: 'Micro-trail', value: 'DESLIGADO — raspava vencedores a +1%', color: 'text-muted' },
     { label: 'Trail L1 / L2 / L3', value: 'v22.58: +3.5% / +5.0% / +7.0% (dist 1.2/0.8/0.5%) — monotônico, deixa correr', color: 'text-info' },
     { label: 'TATICO trail mult', value: '×1.00' },
