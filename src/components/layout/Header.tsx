@@ -48,7 +48,7 @@ export function Header({ hedge, lastUpdate }: HeaderProps) {
                 <h1 className="text-xl font-bold title-shimmer">
                   AETHER
                 </h1>
-                <div className="text-xs text-gray-500">v22.57 | 3 SLEEVES | TREND_FOLLOW | RISK_INTEGRITY</div>
+                <div className="text-xs text-gray-500">v22.58 | DIP-BUYER (REVERSAL) | ANTI-TOPO | CAPITAL-SAFE</div>
               </div>
             </div>
 
