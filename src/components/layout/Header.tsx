@@ -45,7 +45,7 @@ export function Header({ hedge, lastUpdate }: HeaderProps) {
               </div>
 
               <div>
-                <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                <h1 className="text-xl font-bold title-shimmer">
                   AETHER
                 </h1>
                 <div className="text-xs text-gray-500">v22.57 | 3 SLEEVES | TREND_FOLLOW | RISK_INTEGRITY</div>
@@ -65,7 +65,7 @@ export function Header({ hedge, lastUpdate }: HeaderProps) {
           {/* Right - Status */}
           <div className="flex items-center gap-4">
             {/* Live Indicator */}
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-800/50 border border-gray-700">
+            <div className="glow-pulse flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-800/50 border border-emerald-500/30">
               <div className="relative">
                 <div className="w-2 h-2 rounded-full bg-emerald-500" />
                 <div className="absolute inset-0 w-2 h-2 rounded-full bg-emerald-500 animate-ping opacity-75" />
