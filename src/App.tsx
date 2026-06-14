@@ -156,10 +156,10 @@ function App() {
             <section className="mb-8 bg-gradient-to-br from-orange-900/20 via-yellow-900/10 to-red-900/20 border border-orange-500/30 rounded-2xl p-6 backdrop-blur-sm">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white flex items-center gap-3">
-                  <span className="text-3xl animate-pulse">📡</span>
-                  Pump Radar v22.58 — só ALERTA
-                  <span className="ml-3 px-3 py-1 rounded-full bg-gray-500/20 text-gray-300 text-sm font-bold border border-gray-500/30">
-                    NÃO entra
+                  <span className="text-3xl animate-pulse">🚀</span>
+                  Pump Radar v22.58 — Radar + Entrada no INÍCIO
+                  <span className="ml-3 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold border border-emerald-500/30">
+                    Entra cedo (anti-topo)
                   </span>
                 </h2>
                 <div className="text-sm text-gray-400 flex items-center gap-2">
@@ -189,8 +189,8 @@ function App() {
               <div className="bg-gray-900/50 border border-orange-500/20 rounded-lg p-4 text-center">
                 <p className="text-sm text-gray-400">
                   <span className="font-bold text-cyan-400">RADAR v22.58:</span> varre TODA a Binance e avisa pumps no Telegram (+6%, ~5min, até 5/scan).
-                  <strong className="text-yellow-400"> NÃO compra pumps</strong> — entrar no topo seria perda garantida.
-                  As entradas reais são só dip-buyer (REVERSAL): comprar o fundo a virar, nunca o topo.
+                  <strong className="text-emerald-400"> ENTRA no INÍCIO da explosão</strong> (RSI&lt;60 + anti-topo + ema≤3% + vol≥3x · size $5 · SL 6% · TP 12% RR 2:1) — captura o movimento cedo, nunca o topo.
+                  Listagens novas: só alerta (entrada deu 0% WR no teste).
                 </p>
               </div>
             </section>
@@ -740,17 +740,17 @@ function StrategiesSection() {
             </div>
           </div>
           <div>
-            <h4 className="text-lg font-bold text-gray-400 mb-3">⏸️ Sleeves DESLIGADOS</h4>
+            <h4 className="text-lg font-bold text-gray-400 mb-3">🎯 Sleeves de entrada</h4>
             <div className="space-y-3 text-sm">
-              <div className="bg-gray-900/50 border border-gray-500/20 rounded-lg p-4">
-                <div className="font-bold text-gray-300 mb-1">OFF no v22.58</div>
-                <p className="text-gray-400">MOMENTUM_BREAKOUT · TREND_FOLLOW · PUMP_ENTRY</p>
-                <p className="text-xs text-gray-500 mt-1">Comprariam força/topo — contradizem o dip-buyer</p>
-              </div>
               <div className="bg-gray-900/50 border border-emerald-500/20 rounded-lg p-4">
-                <div className="font-bold text-emerald-400 mb-1">Único sleeve vivo</div>
-                <p className="text-gray-400">REVERSAL_TRANSITION (dip-buyer)</p>
-                <p className="text-xs text-gray-500 mt-1">Compra o fundo a virar, nunca o topo</p>
+                <div className="font-bold text-emerald-400 mb-1">ATIVOS (v22.58)</div>
+                <p className="text-gray-400">REVERSAL (dip-buyer) + EARLY-PUMP (explosão no início)</p>
+                <p className="text-xs text-gray-500 mt-1">Dip: compra o fundo a virar · Pump: entra cedo c/ anti-topo — nunca o topo</p>
+              </div>
+              <div className="bg-gray-900/50 border border-gray-500/20 rounded-lg p-4">
+                <div className="font-bold text-gray-300 mb-1">OFF</div>
+                <p className="text-gray-400">MOMENTUM_BREAKOUT · TREND_FOLLOW · LISTING_ENTRY</p>
+                <p className="text-xs text-gray-500 mt-1">Listing entry deu 0% WR (−$1.14) — só alerta</p>
               </div>
             </div>
           </div>

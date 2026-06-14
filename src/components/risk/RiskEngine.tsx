@@ -1,7 +1,7 @@
 export function RiskEngine() {
   const riskParams = [
     // ═══ ESTRATÉGIA ═══
-    { label: '🎯 Estratégia', value: 'DIP-BUYER (REVERSAL) — compra queda a virar, nunca topo', highlight: true, color: 'text-emerald-400' },
+    { label: '🎯 Estratégia', value: 'DIP-BUYER (REVERSAL) + EARLY-PUMP — compra fundo/início, NUNCA o topo', highlight: true, color: 'text-emerald-400' },
     // ═══ RISCO POR TRADE ═══
     { label: '🛑 SL por trade', value: 'ATR-based 2.0–3.0% × size (≈$0.15–0.25)', highlight: true, color: 'text-red-400' },
     { label: '🔒 Hard Stop Safety Net', value: '$1.125 + blacklist 6h', highlight: true, color: 'text-red-400' },
@@ -36,8 +36,10 @@ export function RiskEngine() {
     { label: 'Fee Rate', value: '0.1%/trade' },
     { label: 'Scan Interval', value: '15 ciclos (~2.5min)' },
     // ═══ DESLIGADOS (dip-buyer puro) ═══
-    { label: '⏸️ Sleeves OFF', value: 'MOMENTUM_BREAKOUT · TREND_FOLLOW · PUMP_ENTRY', color: 'text-muted' },
-    { label: 'Pump Radar', value: 'só ALERTA no Telegram (não entra)', color: 'text-muted' },
+    { label: '⏸️ Sleeves OFF', value: 'MOMENTUM_BREAKOUT · TREND_FOLLOW', color: 'text-muted' },
+    { label: '🚀 Early-Pump Entry', value: 'v22.58 ON: apanha explosão no INÍCIO (RSI<60 + anti-topo + ema≤3% + vol≥3x) · $5 · SL 6% (≈$0.30) · TP 12% RR 2:1', color: 'text-emerald-400', highlight: true },
+    { label: 'Pump Radar', value: 'varre TODA a Binance · alerta +6% Telegram', color: 'text-accent-blue' },
+    { label: 'Listing Entry', value: 'OFF (0% WR, −$1.14 no teste) — só alerta', color: 'text-muted' },
     { label: 'Orphan Recovery', value: 'Assets ≥$3 na Binance → recupera como posição' },
     // ═══ BLINDAGEM DE CAPITAL (v22.58 — auditoria de 4 especialistas) ═══
     { label: '🔐 Preço LIVE', value: 'v22.58: falha de API → pula símbolo (NUNCA opera com preço mock)', color: 'text-emerald-400', highlight: true },
