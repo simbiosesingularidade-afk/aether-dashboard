@@ -45,7 +45,7 @@ export function RiskEngine() {
     { label: '🔐 Parcial-TP', value: 'v22.58: ordem PRIMEIRO — só credita saldo após venda confirmar (anti equity-fantasma)' },
     { label: '🔐 Size vs USDT', value: 'v22.58: nunca dimensiona acima do USDT livre' },
     { label: '📡 Radar', value: 'v22.58: varre Binance inteira, alerta +6% a cada ~5min (até 5/scan)', color: 'text-accent-blue' },
-    { label: '🌍 Universo', value: '35 tokens (v22.58: +ADA, LTC, BCH, XLM, SUI)' },
+    { label: '🌍 Universo', value: '61 tokens (v22.58: +26 alts líquidas — breadth dip-buyer)' },
   ];
 
   return (

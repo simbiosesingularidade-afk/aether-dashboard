@@ -20,7 +20,7 @@ export function Footer() {
               <span className="w-2 h-2 rounded-full bg-profit animate-pulse" />
               <span>System Online</span>
             </div>
-            <span>v22.58 | 35 tokens | CORE/OPORT/PRIVACY/TATICO | DIP-BUYER (REVERSAL) | Anti-Topo Fail-Closed · KS Latching · Radar Largo</span>
+            <span>v22.58 | 61 tokens | CORE/OPORT/PRIVACY/TATICO | DIP-BUYER (REVERSAL) | Anti-Topo Fail-Closed · KS Latching · Radar Largo</span>
           </div>
         </div>
       </div>
