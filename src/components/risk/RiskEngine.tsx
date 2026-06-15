@@ -26,8 +26,8 @@ export function RiskEngine() {
     { label: 'Soft Time Stop', value: '0.25%/10min (6h→12h)' },
     // ═══ LIMITES DE RISCO ═══
     { label: 'Daily Loss Máx', value: '$3.00 ou 5% equity', color: 'text-loss' },
-    { label: 'Kill Switch', value: 'streak 3L | WR <30% | drawdown ≥20%', color: 'text-loss' },
-    { label: '🔒 KS Drawdown', value: 'v22.58: LATCHING — dispara e PARA, só /unkill manual religa', color: 'text-loss', highlight: true },
+    { label: 'Kill Switch', value: 'streak 4L | WR <25% (janela 30) | drawdown ≥20%', color: 'text-loss' },
+    { label: '🔒 KS Drawdown', value: 'v22.59: LATCHING + DEBOUNCE 2x (tick fantasma não halta) · /unkill manual · alerta recorrente', color: 'text-loss', highlight: true },
     { label: 'KS Auto-Reset', value: '30min condicional (NÃO para drawdown)' },
     { label: 'Cooldown pós-loss', value: '2h no token' },
     { label: 'Sector Lock', value: '2 losses/setor/dia' },
