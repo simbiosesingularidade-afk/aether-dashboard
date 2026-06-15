@@ -26,7 +26,7 @@ function App() {
             </div>
           </div>
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.58 — DIP-BUYER LIVE</p>
+          <p className="text-cyan-400 font-semibold text-lg">AETHER v22.59 — DIP-BUYER LIVE</p>
           <p className="text-gray-500 text-sm mt-2">Inicializando dashboard...</p>
         </div>
       </div>
@@ -62,12 +62,12 @@ function App() {
 
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-2">
-                AETHER v22.58
+                AETHER v22.59
               </h1>
               <p className="text-gray-400 text-lg">Bot Trading LIVE — Binance Spot · Dip-Buyer (compra o fundo, nunca o topo)</p>
               <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
                 <span className="px-3 py-1 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold">
-                  61 Tokens | CORE(3) OPORT(29) PRIVACY(2) TATICO(27)
+                  63 Tokens | CORE(3) OPORT(29) PRIVACY(2) TATICO(29)
                 </span>
                 <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-400 text-sm font-semibold">
                   LIVE MODE — Binance Spot Real
@@ -127,7 +127,7 @@ function App() {
                 : 'text-gray-400 hover:text-white hover:bg-gray-800'
             }`}
           >
-            📚 Regras v22.58
+            📚 Regras v22.59
           </button>
           <button
             onClick={() => setActiveTab('strategies')}
@@ -157,7 +157,7 @@ function App() {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white flex items-center gap-3">
                   <span className="text-3xl animate-pulse">🚀</span>
-                  Pump Radar v22.58 — Radar + Entrada no INÍCIO
+                  Pump Radar v22.59 — Radar + Entrada no INÍCIO
                   <span className="ml-3 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold border border-emerald-500/30">
                     Entra cedo (anti-topo)
                   </span>
@@ -195,12 +195,12 @@ function App() {
               </div>
             </section>
 
-            {/* Proteções v22.58 + VPS */}
+            {/* Proteções v22.59 + VPS */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <section className="bg-gradient-to-br from-emerald-900/20 to-cyan-900/20 border border-emerald-500/30 rounded-2xl p-6 backdrop-blur-sm">
                 <h2 className="text-xl font-bold text-white flex items-center gap-3 mb-4">
                   <span className="text-3xl">🛡️</span>
-                  Proteções v22.58
+                  Proteções v22.59
                 </h2>
                 <div className="space-y-3 text-sm">
                   <div className="bg-gray-900/50 rounded-lg p-3 border border-gray-800 flex justify-between">
@@ -267,7 +267,7 @@ function App() {
                     <div className="flex items-start gap-4">
                       <span className="text-3xl">🔐</span>
                       <div className="flex-1">
-                        <h3 className="font-bold text-emerald-400 text-lg mb-4">Trailing Stop v22.58 — deixa o vencedor correr (RR 2:1)</h3>
+                        <h3 className="font-bold text-emerald-400 text-lg mb-4">Trailing Stop v22.59 — deixa o vencedor correr (RR 2:1)</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
                           <div className="flex items-center gap-2">
                             <span className="text-gray-500">●</span>
@@ -484,14 +484,14 @@ function RulesSection() {
       category: "📊 SCORE MÍNIMO POR CATEGORIA",
       rules: [
         { title: "CORE (BTC/ETH/BNB)", desc: "score ≥ 40 — qualquer regime", example: "Score 42 → CORE entra em qualquer condição" },
-        { title: "OPORTUNIDADE (29 tokens)", desc: "score ≥ 50 · RISK_OFF: vol≥0.15 + mom>-1.0 (v22.58 afrouxado p/ dip)", example: "Dip a virar com score 52 → entra com size reduzido" },
+        { title: "OPORTUNIDADE (29 tokens)", desc: "score ≥ 50 · RISK_OFF: vol≥0.15 + mom>-1.0 (v22.59 afrouxado p/ dip)", example: "Dip a virar com score 52 → entra com size reduzido" },
         { title: "PRIVACY (ZEC/XMR)", desc: "score ≥ 70 — BLOQUEADO em RISK_OFF (risco regulatório)", example: "Score 72 em RISK_ON → entra com size máx $8" },
-        { title: "TATICO (27 tokens)", desc: "score ≥ 50 · FET/DUSK com gates próprios em RISK_OFF", example: "FET score 60 em RISK_OFF → exceção permitida" },
+        { title: "TATICO (29 tokens)", desc: "score ≥ 50 · FET/DUSK com gates próprios em RISK_OFF", example: "FET score 60 em RISK_OFF → exceção permitida" },
         { title: "MOMENTUM_BREAKOUT", desc: "mom3 ≥ 1.5% | score ≥ 60 | vol ≥ 2.5× | RSI 48–62 | BB squeeze", example: "FET mom3=0.8% score=45 → MOM_BREAKOUT ativo" },
       ]
     },
     {
-      category: "🌡️ REGIME FILTER v22.58",
+      category: "🌡️ REGIME FILTER v22.59",
       rules: [
         { title: "RISK_ON 🟢 — Size 100%", desc: "BTC forte + alts outperformando • Todas categorias ativas", example: "CORE 100% | OPORT 100% | TATICO 100% | PRIVACY 70%" },
         { title: "NEUTRAL 🟡 — Size reduzido", desc: "Condições mistas", example: "CORE 90% | OPORT 75% | TATICO 60% | PRIVACY 50%" },
@@ -500,7 +500,7 @@ function RulesSection() {
       ]
     },
     {
-      category: "🛡️ ANTI_TOPO v22.58 — Bloqueia entrada no topo",
+      category: "🛡️ ANTI_TOPO v22.59 — Bloqueia entrada no topo",
       rules: [
         { title: "Fonte de dados", desc: "Live ticker high_24h (não OHLCV) — sempre atualizado", example: "Ticker Binance retorna high=$1.00, preço atual=$0.985 → 1.5% de distância" },
         { title: "Threshold", desc: "Bloqueia se preço ≤ 2.0% da máxima · FAIL-CLOSED (v22.58: sem dados de máxima = bloqueia)", example: "BTC a 0.8% da máxima de 24h → entrada bloqueada" },
@@ -509,7 +509,7 @@ function RulesSection() {
       ]
     },
     {
-      category: "⚙️ RISK MANAGEMENT v22.58",
+      category: "⚙️ RISK MANAGEMENT v22.59",
       rules: [
         { title: "Risk per trade", desc: "$0.70 máximo (dollar-based SL) • SL calculado como %", example: "Size $10 → SL = 7% | Size $20 → SL = 3.5%" },
         { title: "Daily loss max", desc: "$3.00 ou 5% do equity (o que atingir primeiro)", example: "Perdeu $3 → stop diário, sem novas entradas" },
@@ -520,9 +520,9 @@ function RulesSection() {
       ]
     },
     {
-      category: "🔒 TRAILING STOP v22.58 — deixa o vencedor correr (RR 2:1)",
+      category: "🔒 TRAILING STOP v22.59 — deixa o vencedor correr (RR 2:1)",
       rules: [
-        { title: "Micro-trail", desc: "DESLIGADO (v22.58) — raspava vencedores a +1% (RR caía para 0.27)", example: "Já não corta o lucro cedo" },
+        { title: "Micro-trail", desc: "DESLIGADO (v22.59) — raspava vencedores a +1% (RR caía para 0.27)", example: "Já não corta o lucro cedo" },
         { title: "Breakeven", desc: "pnl ≥ +2.5% → SL = entry + 0.3% (dá room ao dip-buyer)", example: "Entrou $100, em $102.50 SL fica $100.30" },
         { title: "Partial TP", desc: "Vende 50% em +2.0% (pula se o resto ficar < minNotional $5)", example: "Em +2.0% → fecha metade, deixa metade correr" },
         { title: "L1 — +3.5%", desc: "Trail distance 1.2% abaixo do high (largo, deixa respirar)", example: "High +3.5% → SL ~+2.3%" },
@@ -533,7 +533,7 @@ function RulesSection() {
       ]
     },
     {
-      category: "🛡️ PROTEÇÕES v22.58",
+      category: "🛡️ PROTEÇÕES v22.59",
       rules: [
         { title: "Hold time adaptativo", desc: "CORE 48h | OPORT 24h | PRIVACY 12h | TATICO 8h (hard stop)", example: "TATICO 9h → fecha automaticamente" },
         { title: "Cooldown pós-loss", desc: "4h cooldown no token após perda", example: "Perdeu em SOL → sem entrada em SOL por 4h" },
@@ -721,7 +721,7 @@ function StrategiesSection() {
       <div className="bg-gradient-to-br from-orange-900/20 via-yellow-900/10 to-red-900/20 border border-orange-500/30 rounded-2xl p-6 backdrop-blur-sm">
         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
           <span className="text-3xl">📡</span>
-          Pump Radar v22.58 — só ALERTA (não entra)
+          Pump Radar v22.59 — só ALERTA (não entra)
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -743,7 +743,7 @@ function StrategiesSection() {
             <h4 className="text-lg font-bold text-gray-400 mb-3">🎯 Sleeves de entrada</h4>
             <div className="space-y-3 text-sm">
               <div className="bg-gray-900/50 border border-emerald-500/20 rounded-lg p-4">
-                <div className="font-bold text-emerald-400 mb-1">ATIVOS (v22.58)</div>
+                <div className="font-bold text-emerald-400 mb-1">ATIVOS (v22.59)</div>
                 <p className="text-gray-400">REVERSAL (dip-buyer) + EARLY-PUMP (explosão no início)</p>
                 <p className="text-xs text-gray-500 mt-1">Dip: compra o fundo a virar · Pump: entra cedo c/ anti-topo — nunca o topo</p>
               </div>

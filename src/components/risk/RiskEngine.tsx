@@ -15,10 +15,10 @@ export function RiskEngine() {
     { label: '🛡️ ANTI_TOPO', value: '≤2.0% da máxima → bloqueia · FAIL-CLOSED (v22.58: sem dados = bloqueia)', color: 'text-yellow-400', highlight: true },
     { label: '🔊 Piso de Volume', value: 'v22.58: 0.4→0.15 — dip de capitulação tem vol baixo (não rejeita o fundo)', color: 'text-accent-blue' },
     { label: 'Anti-ltrap', value: '|24h| > 25% → bloqueia entrada' },
-    // ═══ SAÍDA (let winners run — v22.58) ═══
-    { label: '🏃 Take Profit', value: 'RR 2:1 (SL × 2 ≈ +4–6%) — deixa correr', highlight: true, color: 'text-emerald-400' },
+    // ═══ SAÍDA (let winners run — v22.59) ═══
+    { label: '🏃 Take Profit', value: 'v22.59: parcial 50% @ +2%, RUNNER cavalga o trail SEM teto (apanha explosões +20%) · pump TP +12%', highlight: true, color: 'text-emerald-400' },
     { label: 'Partial TP', value: '50% @ +2.0% (v22.58: já não raspa cedo)' },
-    { label: 'Breakeven', value: '+2.5% → SL entry+0.3% (v22.58)' },
+    { label: 'Breakeven', value: '+2.5% → SL entry+0.3% (v22.59)' },
     { label: 'Micro-trail', value: 'DESLIGADO — raspava vencedores a +1%', color: 'text-muted' },
     { label: 'Trail L1 / L2 / L3', value: 'v22.58: +3.5% / +5.0% / +7.0% (dist 1.2/0.8/0.5%) — monotônico, deixa correr', color: 'text-info' },
     { label: 'TATICO trail mult', value: '×1.00' },
@@ -37,17 +37,17 @@ export function RiskEngine() {
     { label: 'Scan Interval', value: '15 ciclos (~2.5min)' },
     // ═══ DESLIGADOS (dip-buyer puro) ═══
     { label: '⏸️ Sleeves OFF', value: 'MOMENTUM_BREAKOUT · TREND_FOLLOW', color: 'text-muted' },
-    { label: '🚀 Early-Pump Entry', value: 'v22.58 ON: apanha explosão no INÍCIO (RSI<60 + anti-topo + ema≤3% + vol≥3x) · $5 · SL 6% (≈$0.30) · TP 12% RR 2:1', color: 'text-emerald-400', highlight: true },
+    { label: '🚀 Early-Pump Entry', value: 'v22.59 ON: apanha explosão no INÍCIO (RSI<60 + anti-topo + ema≤3% + vol≥3x) · $5 · SL 6% (≈$0.30) · TP 12% RR 2:1', color: 'text-emerald-400', highlight: true },
     { label: 'Pump Radar', value: 'varre TODA a Binance · alerta +6% Telegram', color: 'text-accent-blue' },
     { label: 'Listing Entry', value: 'OFF (0% WR, −$1.14 no teste) — só alerta', color: 'text-muted' },
     { label: 'Orphan Recovery', value: 'Assets ≥$3 na Binance → recupera como posição' },
-    // ═══ BLINDAGEM DE CAPITAL (v22.58 — auditoria de 4 especialistas) ═══
+    // ═══ BLINDAGEM DE CAPITAL (v22.59 — auditoria de 4 especialistas) ═══
     { label: '🔐 Preço LIVE', value: 'v22.58: falha de API → pula símbolo (NUNCA opera com preço mock)', color: 'text-emerald-400', highlight: true },
     { label: '🔐 load_markets', value: 'v22.58: precisão + minNotional reais (4427 mercados) → fim dos −1013', color: 'text-emerald-400' },
     { label: '🔐 Parcial-TP', value: 'v22.58: ordem PRIMEIRO — só credita saldo após venda confirmar (anti equity-fantasma)' },
     { label: '🔐 Size vs USDT', value: 'v22.58: nunca dimensiona acima do USDT livre' },
     { label: '📡 Radar', value: 'v22.58: varre Binance inteira, alerta +6% a cada ~5min (até 5/scan)', color: 'text-accent-blue' },
-    { label: '🌍 Universo', value: '61 tokens (v22.58: +26 alts líquidas — breadth dip-buyer)' },
+    { label: '🌍 Universo', value: '63 tokens (v22.59: +QNT +BANANAS31 favoritos)' },
   ];
 
   return (
@@ -55,7 +55,7 @@ export function RiskEngine() {
       <div className="bg-gradient-to-r from-accent-blue/20 to-accent-indigo/20 px-4 py-3 border-b border-border">
         <div className="text-sm font-bold text-white flex items-center gap-2">
           <span>⚙️</span>
-          Risk Engine v22.58
+          Risk Engine v22.59
         </div>
       </div>
 
