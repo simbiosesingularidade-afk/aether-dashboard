@@ -10,15 +10,16 @@ export function RiskEngine() {
     { label: 'Size Floor', value: '$3.00 (mínimo por trade)' },
     { label: 'CORE / OPORT / PRIVACY / TATICO', value: '$25 / $18 / $8 / $12' },
     // ═══ ENTRADA (dip-buyer) ═══
-    { label: '📉 Entrada REVERSAL', value: 'drop na faixa + recovery a iniciar + RSI 35–65', highlight: true, color: 'text-accent-blue' },
-    { label: 'Anti-knife', value: 'bloqueia faca a cair s/ bounce | RSI<28 s/ recovery' },
+    { label: '📉 Entrada REVERSAL', value: 'drop + recovery CONFIRMADA + RSI 35–65 + mom3 > +0.15 (v22.60)', highlight: true, color: 'text-accent-blue' },
+    { label: '🔪 Anti-dead-cat (v22.60)', value: 'exige momentum 3-bar POSITIVO + recovery no meio da faixa (não premia bounce fraco)', color: 'text-yellow-400', highlight: true },
+    { label: '🚫 Re-entrada (v22.60)', value: 'NUNCA re-entra em token c/ posição aberta (mata averaging-down em faca)', color: 'text-yellow-400' },
     { label: '🛡️ ANTI_TOPO', value: '≤2.0% da máxima → bloqueia · FAIL-CLOSED (v22.58: sem dados = bloqueia)', color: 'text-yellow-400', highlight: true },
-    { label: '🔊 Piso de Volume', value: 'v22.58: 0.4→0.15 — dip de capitulação tem vol baixo (não rejeita o fundo)', color: 'text-accent-blue' },
+    { label: '🔊 Piso de Volume', value: 'v22.60: 0.25 — fundo real tem spike de volume; faca drift-down tem vol fino', color: 'text-accent-blue' },
     { label: 'Anti-ltrap', value: '|24h| > 25% → bloqueia entrada' },
-    // ═══ SAÍDA (let winners run — v22.59) ═══
+    // ═══ SAÍDA (let winners run — v22.60) ═══
     { label: '🏃 Take Profit', value: 'v22.59: parcial 50% @ +2%, RUNNER cavalga o trail SEM teto (apanha explosões +20%) · pump TP +12%', highlight: true, color: 'text-emerald-400' },
     { label: 'Partial TP', value: '50% @ +2.0% (v22.58: já não raspa cedo)' },
-    { label: 'Breakeven', value: '+2.5% → SL entry+0.3% (v22.59)' },
+    { label: 'Breakeven', value: '+2.5% → SL entry+0.3% (v22.60)' },
     { label: 'Micro-trail', value: 'DESLIGADO — raspava vencedores a +1%', color: 'text-muted' },
     { label: 'Trail L1 / L2 / L3', value: 'v22.58: +3.5% / +5.0% / +7.0% (dist 1.2/0.8/0.5%) — monotônico, deixa correr', color: 'text-info' },
     { label: 'TATICO trail mult', value: '×1.00' },
@@ -37,11 +38,11 @@ export function RiskEngine() {
     { label: 'Scan Interval', value: '15 ciclos (~2.5min)' },
     // ═══ DESLIGADOS (dip-buyer puro) ═══
     { label: '⏸️ Sleeves OFF', value: 'MOMENTUM_BREAKOUT · TREND_FOLLOW', color: 'text-muted' },
-    { label: '🚀 Early-Pump Entry', value: 'v22.59 ON: apanha explosão no INÍCIO (RSI<60 + anti-topo + ema≤3% + vol≥3x) · $5 · SL 6% (≈$0.30) · TP 12% RR 2:1', color: 'text-emerald-400', highlight: true },
+    { label: '🚀 Early-Pump Entry', value: 'v22.60 ON: apanha explosão no INÍCIO (RSI<60 + anti-topo + ema≤3% + vol≥3x) · $5 · SL 6% (≈$0.30) · TP 12% RR 2:1', color: 'text-emerald-400', highlight: true },
     { label: 'Pump Radar', value: 'varre TODA a Binance · alerta +6% Telegram', color: 'text-accent-blue' },
     { label: 'Listing Entry', value: 'OFF (0% WR, −$1.14 no teste) — só alerta', color: 'text-muted' },
     { label: 'Orphan Recovery', value: 'Assets ≥$3 na Binance → recupera como posição' },
-    // ═══ BLINDAGEM DE CAPITAL (v22.59 — auditoria de 4 especialistas) ═══
+    // ═══ BLINDAGEM DE CAPITAL (v22.60 — auditoria de 4 especialistas) ═══
     { label: '🔐 Preço LIVE', value: 'v22.58: falha de API → pula símbolo (NUNCA opera com preço mock)', color: 'text-emerald-400', highlight: true },
     { label: '🔐 load_markets', value: 'v22.58: precisão + minNotional reais (4427 mercados) → fim dos −1013', color: 'text-emerald-400' },
     { label: '🔐 Parcial-TP', value: 'v22.58: ordem PRIMEIRO — só credita saldo após venda confirmar (anti equity-fantasma)' },
@@ -55,7 +56,7 @@ export function RiskEngine() {
       <div className="bg-gradient-to-r from-accent-blue/20 to-accent-indigo/20 px-4 py-3 border-b border-border">
         <div className="text-sm font-bold text-white flex items-center gap-2">
           <span>⚙️</span>
-          Risk Engine v22.59
+          Risk Engine v22.60
         </div>
       </div>
 
